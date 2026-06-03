@@ -98,7 +98,7 @@ export default function Tasks() {
   const [filterStatus, setFilterStatus] = useState('')
 
   useEffect(() => {
-    setParticipants(isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers())
+    setJobseekers(isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers())
   }, [isDemoMode])
 
   const tasks  = isDemoMode ? dataStore.tasks : dataStore.tasks.filter(r => !r.isDemo)

@@ -49,6 +49,12 @@ export const ROUTES = {
   // ── Participant PWA ───────────────────────────────────────
   PARTICIPANT_APP: '/participant-app',
 
+  // ── Learner PWA — primary learner-facing route ────────────
+  LEARNER_PWA: '/learner',
+
+  // ── Admin alias ───────────────────────────────────────────
+  ADMIN: '/admin',
+
   // ── Settings ──────────────────────────────────────────────
   SETTINGS:              '/settings',
   SETTINGS_PROFILE:      '/settings/profile',

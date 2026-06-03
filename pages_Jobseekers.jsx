@@ -340,7 +340,7 @@ export default function Participants() {
 
   const reload = useCallback(() => {
     const js = isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers()
-    setParticipants(js)
+    setJobseekers(js)
   }, [isDemoMode])
 
   useEffect(() => { reload() }, [reload])

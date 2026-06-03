@@ -37,7 +37,7 @@ function PINGate({ onAuth }) {
 
   useEffect(() => {
     const all = jobseekerService.getAll()
-    setParticipants(all)
+    setJobseekers(all)
     // Auto-fill if session exists
     const session = JSON.parse(localStorage.getItem(STORAGE_KEYS.JOBSEEKER_SESSION) || 'null')
     if (session?.jobseekerId) {

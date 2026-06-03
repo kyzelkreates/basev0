@@ -139,7 +139,7 @@ export default function WeeklyActivity() {
 
   useEffect(() => {
     const js = isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers()
-    setParticipants(js)
+    setJobseekers(js)
   }, [isDemoMode])
 
   const logs = isDemoMode ? dataStore.activityLogs : dataStore.activityLogs.filter(r => !r.isDemo)

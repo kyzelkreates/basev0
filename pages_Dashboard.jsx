@@ -360,7 +360,7 @@ export default function Dashboard() {
     const js = isDemoMode
       ? jobseekerService.getAll()
       : jobseekerService.getRealJobseekers()
-    setParticipants(js)
+    setJobseekers(js)
   }, [isDemoMode])
 
   // ── Compute metrics whenever underlying data changes ────────

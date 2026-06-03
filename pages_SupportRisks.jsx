@@ -111,7 +111,7 @@ export default function SupportRisks() {
   const [modal, setModal]           = useState(null)
 
   useEffect(() => {
-    setParticipants(isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers())
+    setJobseekers(isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers())
   }, [isDemoMode])
 
   const flags  = isDemoMode ? dataStore.supportFlags : dataStore.supportFlags.filter(r => !r.isDemo)

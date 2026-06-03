@@ -183,6 +183,15 @@ export default function Sidebar() {
           <Icon name="ChevronRight" size={11} className="text-[#d4af37]/40 group-hover:text-[#d4af37]/80 transition-colors flex-shrink-0" />
         </button>
         <button
+          onClick={() => { navigate('/learner'); close() }}
+          className="w-full flex items-center gap-2 px-3 py-2 rounded-xl border border-[#a855f7]/30 bg-[#a855f7]/8 hover:bg-[#a855f7]/15 transition-all group"
+          style={{ minHeight: 40 }}
+        >
+          <Icon name="GraduationCap" size={13} className="text-purple-400 flex-shrink-0" />
+          <span className="text-xs font-bold text-purple-400 flex-1 text-left truncate">Open Learner PWA</span>
+          <Icon name="ChevronRight" size={10} className="text-purple-700 group-hover:text-purple-400 transition-colors flex-shrink-0" />
+        </button>
+        <button
           onClick={() => { navigate('/participant-setup'); close() }}
           className="w-full flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-700/40 bg-slate-800/20 hover:bg-slate-800/40 transition-all group"
           style={{ minHeight: 40 }}

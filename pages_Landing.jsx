@@ -124,7 +124,7 @@ export default function LandingPage() {
   const isDemoMode  = config?.demoModeEnabled ?? true
 
   const goToDashboard      = () => navigate('/dashboard')
-  const goToParticipantPWA = () => navigate('/participant-app')
+  const goToParticipantPWA = () => navigate('/learner')
 
   return (
     <div style={{
@@ -174,7 +174,7 @@ export default function LandingPage() {
           </button>
           <button
             onClick={goToParticipantPWA}
-            aria-label="Open Participant App"
+            aria-label="Open Learner PWA"
             style={{
               padding: '8px 16px', borderRadius: 10,
               border: `1px solid ${PURPLE}40`, background: `${PURPLE}10`,
@@ -182,7 +182,7 @@ export default function LandingPage() {
               display: 'flex', alignItems: 'center', gap: 6,
             }}
           >
-            <Icon name="Smartphone" size={13} /> Participant App
+            <Icon name="Smartphone" size={13} /> Learner PWA
           </button>
         </div>
       </nav>
@@ -237,7 +237,7 @@ export default function LandingPage() {
           flexWrap: 'wrap', padding: '0 8px',
         }}>
           <CTAButton label="Open Admin Dashboard"  icon="LayoutDashboard" onClick={goToDashboard}      primary color={GOLD}   />
-          <CTAButton label="Open Participant App"   icon="Smartphone"      onClick={goToParticipantPWA}       color={PURPLE} />
+          <CTAButton label="Open Learner PWA"   icon="Smartphone"      onClick={goToParticipantPWA}       color={PURPLE} />
         </div>
       </section>
 
@@ -306,7 +306,7 @@ export default function LandingPage() {
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
             }}
           >
-            <Icon name="Smartphone" size={14} /> Open Participant App
+            <Icon name="Smartphone" size={14} /> Open Learner PWA
           </button>
         </div>
 

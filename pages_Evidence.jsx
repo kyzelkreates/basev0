@@ -110,7 +110,7 @@ export default function Evidence() {
   const [modal, setModal]           = useState(null)
 
   useEffect(() => {
-    setParticipants(isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers())
+    setJobseekers(isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers())
   }, [isDemoMode])
 
   const records = isDemoMode ? dataStore.evidenceRecords : dataStore.evidenceRecords.filter(r => !r.isDemo)

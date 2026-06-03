@@ -102,7 +102,7 @@ export default function ReviewSessions() {
   const [modal, setModal]           = useState(null)
 
   useEffect(() => {
-    setParticipants(isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers())
+    setJobseekers(isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers())
   }, [isDemoMode])
 
   const reviewSessions = isDemoMode ? dataStore.interviews : dataStore.interviews.filter(r => !r.isDemo)

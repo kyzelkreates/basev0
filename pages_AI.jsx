@@ -155,7 +155,7 @@ export default function AIPage() {
 
   useEffect(() => {
     const js = isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers()
-    setParticipants(js)
+    setJobseekers(js)
     setInsights(generateAutoInsights(js, dataStore, isDemoMode, weeklyTarget))
   }, [isDemoMode, dataStore, weeklyTarget])
 

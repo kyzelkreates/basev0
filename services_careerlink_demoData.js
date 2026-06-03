@@ -416,3 +416,82 @@ export function removeDemoData(dataStore) {
     console.warn('[4P3X] removeDemoData error:', e)
   }
 }
+
+// ─── Learning Modules Demo Data ───────────────────────────────
+// Used by the Learner PWA and Admin Dashboard learning view.
+// Isolated and replaceable with live backend data.
+
+export const DEMO_LEARNING_MODULES = [
+  {
+    id: 'mod_001',
+    title: 'Welcome & Orientation',
+    description: 'Introduction to your programme, expectations, and how to use the platform.',
+    order: 1,
+    status: 'completed',
+    completionCount: 4,
+    evidenceRequired: false,
+    duration: '30 min',
+    icon: 'BookOpen',
+  },
+  {
+    id: 'mod_002',
+    title: 'Core Learning Module',
+    description: 'Core skills and knowledge required for your programme.',
+    order: 2,
+    status: 'available',
+    completionCount: 2,
+    evidenceRequired: true,
+    duration: '90 min',
+    icon: 'GraduationCap',
+  },
+  {
+    id: 'mod_003',
+    title: 'Practical Task',
+    description: 'Apply your learning with a structured practical activity.',
+    order: 3,
+    status: 'available',
+    completionCount: 1,
+    evidenceRequired: true,
+    duration: '60 min',
+    icon: 'Wrench',
+  },
+  {
+    id: 'mod_004',
+    title: 'Knowledge Check',
+    description: 'A short assessment to confirm your understanding of the core content.',
+    order: 4,
+    status: 'locked',
+    completionCount: 0,
+    evidenceRequired: false,
+    duration: '20 min',
+    icon: 'ClipboardCheck',
+  },
+  {
+    id: 'mod_005',
+    title: 'Completion Review',
+    description: 'Final review with your coach/trainer before certificate issuance.',
+    order: 5,
+    status: 'locked',
+    completionCount: 0,
+    evidenceRequired: true,
+    duration: '45 min',
+    icon: 'Award',
+  },
+]
+
+// Per-participant module progress (demo)
+export const DEMO_MODULE_PROGRESS = {
+  demo_p_001: { mod_001: 'completed', mod_002: 'completed', mod_003: 'available', mod_004: 'locked', mod_005: 'locked' },
+  demo_p_002: { mod_001: 'completed', mod_002: 'available', mod_003: 'locked',    mod_004: 'locked', mod_005: 'locked' },
+  demo_p_003: { mod_001: 'completed', mod_002: 'available', mod_003: 'locked',    mod_004: 'locked', mod_005: 'locked' },
+  demo_p_004: { mod_001: 'completed', mod_002: 'completed', mod_003: 'completed', mod_004: 'available', mod_005: 'locked' },
+  demo_p_005: { mod_001: 'completed', mod_002: 'locked',    mod_003: 'locked',    mod_004: 'locked', mod_005: 'locked' },
+}
+
+// Derive overall progress % from module progress map
+export function calcModuleProgress(progressMap = {}) {
+  const total = DEMO_LEARNING_MODULES.length
+  if (!total) return 0
+  const done = Object.values(progressMap).filter(v => v === 'completed').length
+  return Math.round((done / total) * 100)
+}

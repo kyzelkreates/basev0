@@ -115,7 +115,7 @@ export default function ActivityRecords() {
 
   useEffect(() => {
     const js = isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers()
-    setParticipants(js)
+    setJobseekers(js)
   }, [isDemoMode])
 
   const apps   = isDemoMode ? dataStore.applications : dataStore.applications.filter(r => !r.isDemo)

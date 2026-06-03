@@ -127,7 +127,7 @@ export default function CheckIns() {
   const [modal, setModal]           = useState(false)
 
   useEffect(() => {
-    setParticipants(isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers())
+    setJobseekers(isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers())
   }, [isDemoMode])
 
   const checkIns = isDemoMode ? dataStore.checkIns : dataStore.checkIns.filter(r => !r.isDemo)

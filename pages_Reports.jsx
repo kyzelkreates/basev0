@@ -220,7 +220,7 @@ export default function Reports() {
   const [participants, setJobseekers] = useState([])
 
   useEffect(() => {
-    setParticipants(isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers())
+    setJobseekers(isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers())
   }, [isDemoMode])
 
   const selected = jobseekerId ? participants.find(j => j.id === jobseekerId) : null
