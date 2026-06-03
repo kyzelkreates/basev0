@@ -100,7 +100,7 @@ function CTAButton({ label, icon, onClick, primary = false, color = GOLD }) {
         transition: 'all 0.18s ease',
         letterSpacing: '0.01em',
         flex: 1,
-        minWidth: 180,
+        minWidth: 'min(180px, 45vw)',
         maxWidth: 320,
       }}
       onMouseEnter={e => {
@@ -138,7 +138,8 @@ export default function LandingPage() {
       {/* ── TOP NAV ─────────────────────────────────────── */}
       <nav style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '16px 24px',
+        padding: 'clamp(10px, 3vw, 16px) clamp(12px, 4vw, 24px)',
+        flexWrap: 'wrap',
         borderBottom: `1px solid ${BORDER}`,
         background: 'rgba(5,8,16,0.92)',
         backdropFilter: 'blur(12px)',
@@ -158,7 +159,7 @@ export default function LandingPage() {
             <div style={{ fontSize: 9, color: SILVER, opacity: 0.7, letterSpacing: '0.05em' }}>POWERED BY 4P3X INTELLIGENT AI</div>
           </div>
         </div>
-        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
           <button
             onClick={goToDashboard}
             aria-label="Open Admin Dashboard"
@@ -188,7 +189,7 @@ export default function LandingPage() {
 
       {/* ── HERO ────────────────────────────────────────── */}
       <section style={{
-        padding: 'clamp(48px, 8vw, 96px) clamp(20px, 5vw, 80px) clamp(40px, 6vw, 80px)',
+        padding: 'clamp(32px, 6vw, 80px) clamp(16px, 4vw, 64px) clamp(28px, 5vw, 64px)',
         maxWidth: 1100,
         margin: '0 auto',
         textAlign: 'center',
