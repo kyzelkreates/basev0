@@ -1,0 +1,32 @@
+{
+  "name": "4p3x-learning-monitoring-base-os",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.344.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0",
+    "recharts": "^2.15.4",
+    "zustand": "^4.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.0",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.1.0",
+    "vite-plugin-pwa": "^0.19.0",
+    "workbox-build": "^7.0.0",
+    "workbox-window": "^7.0.0"
+  },
+  "description": "4P3X Learning & Monitoring Base OS\u2122 \u2014 Participant PWA + Admin Monitoring Dashboard. Powered by 4P3X Intelligent AI \u2014 Created by Kyzel Kreates."
+}
