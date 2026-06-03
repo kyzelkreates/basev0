@@ -141,7 +141,7 @@ export default function SupportRisks() {
       {open.length === 0 ? (
         <div className="py-12 text-center bg-[#0d1426] border border-slate-800/60 rounded-xl">
           <Icon name="ShieldCheck" size={28} className="text-emerald-500 mx-auto mb-3"/>
-          <p className="text-sm text-slate-400 font-medium">No open support flags</p>
+          <p className="text-sm text-slate-400 font-medium">No open supportFlags</p>
           <p className="text-xs text-slate-600 mt-1">All participants are currently flagged as low risk.</p>
         </div>
       ) : (

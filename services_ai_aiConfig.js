@@ -73,12 +73,12 @@ export const LOCAL_AI_RESPONSES = {
   },
   coach: {
     showAround:     'The dashboard shows an overview of all participants — use the sidebar to navigate to Participants, Weekly Activity, Activity Records, Review Sessions, Check-ins, Evidence, Tasks, and Reports.',
-    explainMetrics: 'Metrics show: total participants, active this week, at risk, weekly target average, hours logged, activity records submitted, review sessions booked, evidence uploaded, and missed check-ins.',
+    explainMetrics: 'Metrics show: total participants, active this week, at risk, weekly target average, hours logged, activityRecords submitted, reviewSessions booked, evidence uploaded, and missed check-ins.',
     addJobseeker:   'Go to Invite Participant in the sidebar. Enter the participant\'s name and details, then copy the PWA invite link to share with them.',
     sendPWALink:    'The PWA link is shown in the Invite Participant screen. Copy it and send via email, SMS, or WhatsApp. The participant can add it to their home screen as an app.',
-    reviewProgress: 'Click on a participant\'s name to view their profile. You will see weekly target progress, activity logs, activity records, check-ins, and risk flags.',
+    reviewProgress: 'Click on a participant\'s name to view their profile. You will see weekly target progress, activity logs, activityRecords, check-ins, and risk flags.',
     checkEvidence:  'Go to Evidence in the sidebar. Review records by participant. Each record shows the evidence type, date, and file reference. Add notes where needed.',
-    useReports:     'Go to Reports and select a participant. You will see their full activity summary including activity logs, activity records, review sessions, check-ins, evidence, and mentor notes.',
+    useReports:     'Go to Reports and select a participant. You will see their full activity summary including activity logs, activityRecords, reviewSessions, check-ins, evidence, and mentorNotes.',
     riskLevels:     'Risk levels: Low = on track. Medium = slightly behind or a barrier flagged. High = significantly behind or multiple barriers. Critical = no activity or urgent welfare concern.',
     turnOffDemo:    'Go to Settings → Demo Mode. Toggle Demo Mode OFF. Demo records will be hidden and the dashboard will show only real participant data.',
     checkFirst:     'Start by reviewing the At Risk section on the dashboard. Follow up with any participants flagged as high or critical risk, then check for missed check-ins.',
@@ -92,4 +92,16 @@ export default {
   DEFAULT_AI_CONFIG,
   AI_DISCLAIMER,
   LOCAL_AI_RESPONSES,
+}
+
+// ─── Provider endpoint map ─────────────────────────────────────────────────────
+export const PROVIDER_ENDPOINTS = {
+  openai:      'https://api.openai.com/v1/chat/completions',
+  openrouter:  'https://openrouter.ai/api/v1/chat/completions',
+  groq:        'https://api.groq.com/openai/v1/chat/completions',
+  deepseek:    'https://api.deepseek.com/v1/chat/completions',
+  mistral:     'https://api.mistral.ai/v1/chat/completions',
+  anthropic:   'https://api.anthropic.com/v1/messages',
+  gemini:      'https://generativelanguage.googleapis.com/v1beta/models',
+  local:       'http://localhost:11434/api/chat',
 }

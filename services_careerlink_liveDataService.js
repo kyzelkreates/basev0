@@ -113,7 +113,7 @@ export async function insertApplication(app) {
   if (!sbReady()) return { data: null, error: 'Supabase not configured' }
   try {
     const { data, error } = await sb()
-      .from('activity records')
+      .from('activityRecords')
       .insert(app)
       .select()
       .single()
@@ -126,7 +126,7 @@ export async function insertApplication(app) {
 export async function fetchApplications({ jobseekerId } = {}) {
   if (!sbReady()) return notConfigured()
   try {
-    let q = sb().from('activity records').select('*').order('date_applied', { ascending: false })
+    let q = sb().from('activityRecords').select('*').order('date_applied', { ascending: false })
     if (jobseekerId) q = q.eq('jobseeker_id', jobseekerId)
     const { data, error } = await q
     return { data: data || [], error: error?.message || null, source: 'supabase' }
@@ -143,7 +143,7 @@ export async function insertInterview(iv) {
   if (!sbReady()) return { data: null, error: 'Supabase not configured' }
   try {
     const { data, error } = await sb()
-      .from('review sessions')
+      .from('reviewSessions')
       .insert(iv)
       .select()
       .single()
@@ -156,7 +156,7 @@ export async function insertInterview(iv) {
 export async function fetchInterviews({ jobseekerId } = {}) {
   if (!sbReady()) return notConfigured()
   try {
-    let q = sb().from('review sessions').select('*').order('interview_date', { ascending: false })
+    let q = sb().from('reviewSessions').select('*').order('interview_date', { ascending: false })
     if (jobseekerId) q = q.eq('jobseeker_id', jobseekerId)
     const { data, error } = await q
     return { data: data || [], error: error?.message || null, source: 'supabase' }
@@ -324,8 +324,8 @@ export async function fetchDashboardData({ organisationId } = {}) {
     return {
       participants:     [],
       activityLogs:   [],
-      activity records:   [],
-      review sessions:     [],
+      activityRecords:   [],
+      reviewSessions:     [],
       checkIns:       [],
       evidenceRecords:[],
       supportFlags:   [],
@@ -340,8 +340,8 @@ export async function fetchDashboardData({ organisationId } = {}) {
     const [jsRes, actRes, appRes, ivRes, ciRes, evRes] = await Promise.all([
       sb().from('participants').select('*').order('created_at', { ascending: false }),
       sb().from('activity_logs').select('*').order('date', { ascending: false }).limit(500),
-      sb().from('activity records').select('*').order('date_applied', { ascending: false }).limit(500),
-      sb().from('review sessions').select('*').order('interview_date', { ascending: false }).limit(200),
+      sb().from('activityRecords').select('*').order('date_applied', { ascending: false }).limit(500),
+      sb().from('reviewSessions').select('*').order('interview_date', { ascending: false }).limit(200),
       sb().from('check_ins').select('*').order('check_in_date', { ascending: false }).limit(500),
       sb().from('evidence_records').select('*').order('created_at', { ascending: false }).limit(500),
     ])
@@ -349,8 +349,8 @@ export async function fetchDashboardData({ organisationId } = {}) {
     return {
       participants:      jsRes.data  || [],
       activityLogs:    actRes.data || [],
-      activity records:    appRes.data || [],
-      review sessions:      ivRes.data  || [],
+      activityRecords:    appRes.data || [],
+      reviewSessions:      ivRes.data  || [],
       checkIns:        ciRes.data  || [],
       evidenceRecords: evRes.data  || [],
       supportFlags:    [],  // derived from risk levels for now
@@ -361,8 +361,8 @@ export async function fetchDashboardData({ organisationId } = {}) {
     }
   } catch (e) {
     return {
-      participants: [], activityLogs: [], activity records: [],
-      review sessions: [], checkIns: [], evidenceRecords: [],
+      participants: [], activityLogs: [], activityRecords: [],
+      reviewSessions: [], checkIns: [], evidenceRecords: [],
       supportFlags: [], tasks: [],
       error: e.message, source: 'error', lastSynced: null,
     }

@@ -101,7 +101,7 @@ export const ASSISTANT_REGISTRY = {
       { id:'evidence_gaps',         label:'Who is missing evidence?' },
       { id:'checkin_summary',       label:'Summarise check-ins' },
       { id:'progress_overview',     label:'Overall progress overview' },
-      { id:'upcoming_reviews',      label:'Show upcoming review sessions' },
+      { id:'upcoming_reviews',      label:'Show upcoming reviewSessions' },
       { id:'summarise_participant', label:'Summarise this participant' },
       { id:'explain_risk_flag',     label:'Explain this risk flag' },
       { id:'what_next_admin',       label:'What should I do next?' },

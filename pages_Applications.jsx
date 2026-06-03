@@ -105,7 +105,7 @@ function AppModal({ existing, participants, onClose, onSaved }) {
   )
 }
 
-export default function Activity Records() {
+export default function ActivityRecords() {
   const config     = useConfigStore(s => s.config)
   const isDemoMode = config.demoModeEnabled
   const dataStore  = useDataStore()
@@ -127,7 +127,7 @@ export default function Activity Records() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h1 className="font-display font-bold text-white text-xl">Activity Records</h1>
-          <p className="text-slate-500 text-sm mt-0.5">{apps.length} activity records tracked</p>
+          <p className="text-slate-500 text-sm mt-0.5">{apps.length} activityRecords tracked</p>
         </div>
         <button onClick={() => setModal({})}
           className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#d4af37] text-black text-sm font-semibold hover:bg-[#e6c34a] transition-colors">
@@ -146,7 +146,7 @@ export default function Activity Records() {
         {filtered.length === 0 ? (
           <div className="py-12 text-center">
             <Icon name="FileText" size={28} className="text-slate-700 mx-auto mb-3" />
-            <p className="text-sm text-slate-600">No activity records yet.</p>
+            <p className="text-sm text-slate-600">No activityRecords yet.</p>
             <button onClick={() => setModal({})} className="mt-3 text-sm text-[#d4af37] hover:underline">+ Add first activity record</button>
           </div>
         ) : (

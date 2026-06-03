@@ -15,8 +15,8 @@ function ReportView({ participant, dataStore, isDemoMode, weeklyTarget }) {
   const navigate = useNavigate()
   const snap = {
     activityLogs: isDemoMode ? dataStore.activityLogs : dataStore.activityLogs.filter(r=>!r.isDemo),
-    activity records: isDemoMode ? dataStore.applications : dataStore.applications.filter(r=>!r.isDemo),
-    review sessions:   isDemoMode ? dataStore.interviews   : dataStore.interviews.filter(r=>!r.isDemo),
+    activityRecords: isDemoMode ? dataStore.applications : dataStore.applications.filter(r=>!r.isDemo),
+    reviewSessions:   isDemoMode ? dataStore.interviews   : dataStore.interviews.filter(r=>!r.isDemo),
     checkIns:     isDemoMode ? dataStore.checkIns     : dataStore.checkIns.filter(r=>!r.isDemo),
   }
   const metrics = deriveJobseekerMetrics(participant.id, snap, participant.weeklyTargetHours || weeklyTarget)
@@ -104,7 +104,7 @@ function ReportView({ participant, dataStore, isDemoMode, weeklyTarget }) {
 
       {/* Activity Records */}
       <Section title={`Activity Records (${apps.length})`} icon="FileText">
-        {apps.length === 0 ? <p className="text-xs text-slate-600">No activity records recorded.</p> :
+        {apps.length === 0 ? <p className="text-xs text-slate-600">No activityRecords recorded.</p> :
           <div className="space-y-2">
             {apps.map(a => (
               <div key={a.id} className="flex items-center gap-3 border-b border-slate-800/20 pb-2 last:border-0">
@@ -121,7 +121,7 @@ function ReportView({ participant, dataStore, isDemoMode, weeklyTarget }) {
 
       {/* Review Sessions */}
       <Section title={`Review Sessions (${ivs.length})`} icon="CalendarCheck">
-        {ivs.length === 0 ? <p className="text-xs text-slate-600">No review sessions recorded.</p> :
+        {ivs.length === 0 ? <p className="text-xs text-slate-600">No reviewSessions recorded.</p> :
           ivs.map(iv => (
             <div key={iv.id} className="border-b border-slate-800/20 pb-2 mb-2 last:border-0 last:mb-0">
               <div className="text-xs font-medium text-white">{iv.roleTitle} at {iv.organisation}</div>

@@ -80,8 +80,8 @@ function generateAutoInsights(participants, dataStore, isDemoMode, weeklyTarget)
   const insights = []
   const snap = {
     activityLogs: isDemoMode ? dataStore.activityLogs : dataStore.activityLogs.filter(r => !r.isDemo),
-    activity records: isDemoMode ? dataStore.applications : dataStore.applications.filter(r => !r.isDemo),
-    review sessions:   isDemoMode ? dataStore.interviews   : dataStore.interviews.filter(r => !r.isDemo),
+    activityRecords: isDemoMode ? dataStore.applications : dataStore.applications.filter(r => !r.isDemo),
+    reviewSessions:   isDemoMode ? dataStore.interviews   : dataStore.interviews.filter(r => !r.isDemo),
     checkIns:     isDemoMode ? dataStore.checkIns     : dataStore.checkIns.filter(r => !r.isDemo),
   }
 
@@ -113,7 +113,7 @@ function generateAutoInsights(participants, dataStore, isDemoMode, weeklyTarget)
 
     if (metrics.applicationCountWeek === 0) {
       if (riskLevel === 'low') riskLevel = 'medium'
-      reasons.push('No activity records this week')
+      reasons.push('No activityRecords this week')
     }
 
     if (flags.length > 0) {
@@ -121,7 +121,7 @@ function generateAutoInsights(participants, dataStore, isDemoMode, weeklyTarget)
         : flags.some(f => f.severity === 'high') ? 'high' : riskLevel
       riskLevel = maxSev
       reasons.push(`${flags.length} open support flag(s)`)
-      suggestedAction = suggestedAction || 'Review open support flags and arrange support.'
+      suggestedAction = suggestedAction || 'Review open supportFlags and arrange support.'
     }
 
     if (riskLevel !== 'low') {
@@ -134,7 +134,7 @@ function generateAutoInsights(participants, dataStore, isDemoMode, weeklyTarget)
         reason: reasons.join('. ') + '.',
         suggestedAction,
         confidence: riskLevel === 'critical' ? 'High' : riskLevel === 'high' ? 'Medium-High' : 'Medium',
-        evidenceUsed: `Activity logs, check-ins, activity records${flags.length > 0 ? ', support flags' : ''}.`,
+        evidenceUsed: `Activity logs, check-ins, activityRecords${flags.length > 0 ? ', supportFlags' : ''}.`,
       })
     }
   })
@@ -166,8 +166,8 @@ export default function AIPage() {
   const ai2Context = {
     participants:      isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers(),
     activityLogs:    dataStore.activityLogs    || [],
-    activity records:    dataStore.applications    || [],
-    review sessions:      dataStore.interviews      || [],
+    activityRecords:    dataStore.applications    || [],
+    reviewSessions:      dataStore.interviews      || [],
     checkIns:        dataStore.checkIns        || [],
     evidenceRecords: dataStore.evidenceRecords || [],
     supportFlags:    dataStore.supportFlags    || [],

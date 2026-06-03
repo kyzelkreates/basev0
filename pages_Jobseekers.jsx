@@ -140,8 +140,8 @@ function JobseekerDetail({ participant, onBack, onEdit, weeklyTarget, dataStore,
   const [noteText, setNoteText] = useState('')
   const dataSnap = {
     activityLogs: isDemoMode ? dataStore.activityLogs : dataStore.activityLogs.filter(r => !r.isDemo),
-    activity records: isDemoMode ? dataStore.applications : dataStore.applications.filter(r => !r.isDemo),
-    review sessions:   isDemoMode ? dataStore.interviews   : dataStore.interviews.filter(r => !r.isDemo),
+    activityRecords: isDemoMode ? dataStore.applications : dataStore.applications.filter(r => !r.isDemo),
+    reviewSessions:   isDemoMode ? dataStore.interviews   : dataStore.interviews.filter(r => !r.isDemo),
     checkIns:     isDemoMode ? dataStore.checkIns     : dataStore.checkIns.filter(r => !r.isDemo),
   }
   const metrics = deriveJobseekerMetrics(participant.id, dataSnap, participant.weeklyTargetHours || weeklyTarget)
@@ -185,7 +185,7 @@ function JobseekerDetail({ participant, onBack, onEdit, weeklyTarget, dataStore,
         {[
           { label: 'Weekly Hours', value: `${metrics.weeklyHoursLogged}h`, sub: `of ${participant.weeklyTargetHours || weeklyTarget}h target`, color: 'text-[#d4af37]' },
           { label: 'Target Progress', value: `${metrics.weeklyTargetPercent}%`, sub: metrics.progressStatus.replace('_', ' '), color: 'text-emerald-400' },
-          { label: 'Apps This Week', value: metrics.applicationCountWeek, sub: 'activity records', color: 'text-purple-400' },
+          { label: 'Apps This Week', value: metrics.applicationCountWeek, sub: 'activityRecords', color: 'text-purple-400' },
           { label: 'Upcoming Review Sessions', value: metrics.interviewsUpcoming, sub: 'scheduled', color: 'text-cyan-400' },
         ].map(c => (
           <div key={c.label} className="bg-[#0d1426] border border-slate-800/60 rounded-xl p-3">
@@ -218,7 +218,7 @@ function JobseekerDetail({ participant, onBack, onEdit, weeklyTarget, dataStore,
           </div>
           <div className="divide-y divide-slate-800/20">
             {recentApps.length === 0 ? (
-              <p className="text-xs text-slate-600 text-center py-4">No activity records yet.</p>
+              <p className="text-xs text-slate-600 text-center py-4">No activityRecords yet.</p>
             ) : recentApps.map(a => (
               <div key={a.id} className="px-4 py-2.5">
                 <div className="flex items-center justify-between">
@@ -414,8 +414,8 @@ export default function Participants() {
                 {filtered.map(js => {
                   const snap = {
                     activityLogs: (isDemoMode ? dataStore.activityLogs : dataStore.activityLogs.filter(r => !r.isDemo)),
-                    activity records: (isDemoMode ? dataStore.applications : dataStore.applications.filter(r => !r.isDemo)),
-                    review sessions:   (isDemoMode ? dataStore.interviews   : dataStore.interviews.filter(r => !r.isDemo)),
+                    activityRecords: (isDemoMode ? dataStore.applications : dataStore.applications.filter(r => !r.isDemo)),
+                    reviewSessions:   (isDemoMode ? dataStore.interviews   : dataStore.interviews.filter(r => !r.isDemo)),
                     checkIns:     (isDemoMode ? dataStore.checkIns     : dataStore.checkIns.filter(r => !r.isDemo)),
                   }
                   const m = deriveJobseekerMetrics(js.id, snap, js.weeklyTargetHours || weeklyTarget)

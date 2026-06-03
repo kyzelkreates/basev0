@@ -173,8 +173,6 @@ export const DEMO_APPLICATIONS = [
   },
 ]
 
-// Legacy alias
-export const DEMO_APPLICATIONS = DEMO_APPLICATIONS
 
 // ─── Demo Review Sessions (formerly Review Sessions) ───────────────
 export const DEMO_INTERVIEWS = [
@@ -196,8 +194,6 @@ export const DEMO_INTERVIEWS = [
   },
 ]
 
-// Legacy alias
-export const DEMO_INTERVIEWS = DEMO_INTERVIEWS
 
 // ─── Demo Check-in Questions ──────────────────────────────────
 const CHECK_IN_QUESTIONS = [
@@ -206,7 +202,7 @@ const CHECK_IN_QUESTIONS = [
   'Did you submit any progress records today?',
   'Did you contact your mentor or practitioner?',
   'Did you update your evidence portfolio?',
-  'Do you have any review sessions coming up?',
+  'Do you have any reviewSessions coming up?',
   'Are there any barriers stopping you from completing activities?',
   'Do you need support from your mentor or practitioner?',
   'How confident do you feel about your progress today?',
@@ -389,4 +385,34 @@ export function loadDemoData(participantSvc, dataStore) {
   addIfEmpty(dataStore.tasks,           DEMO_TASKS,            dataStore.addTask)
   addIfEmpty(dataStore.supportFlags,    DEMO_SUPPORT_FLAGS,    dataStore.addSupportFlag)
   addIfEmpty(dataStore.mentorNotes,     DEMO_MENTOR_NOTES,     dataStore.addMentorNote)
+}
+
+// ─── Check-in question defaults ───────────────────────────────────────────────
+export const CHECK_IN_QUESTIONS_DEFAULT = [
+  { id: 'q1', text: 'How are you feeling about your progress this week?', type: 'scale', min: 1, max: 5 },
+  { id: 'q2', text: 'Did you complete your planned activities this week?', type: 'yesno' },
+  { id: 'q3', text: 'Have you faced any barriers or challenges?', type: 'yesno' },
+  { id: 'q4', text: 'Do you need any additional support?', type: 'yesno' },
+  { id: 'q5', text: 'Any other comments or notes?', type: 'text' },
+]
+
+// ─── Remove demo data ─────────────────────────────────────────────────────────
+export function removeDemoData(dataStore) {
+  if (!dataStore) return
+  const clear = (arr, fn) => {
+    const demos = (arr || []).filter(r => r.isDemo)
+    demos.forEach(r => fn && fn(r.id))
+  }
+  try {
+    clear(dataStore.activityLogs,    dataStore.deleteActivityLog)
+    clear(dataStore.activityRecords, dataStore.deleteActivityRecord)
+    clear(dataStore.reviewSessions,  dataStore.deleteReviewSession)
+    clear(dataStore.checkIns,        dataStore.deleteCheckIn)
+    clear(dataStore.evidenceRecords, dataStore.deleteEvidence)
+    clear(dataStore.tasks,           dataStore.deleteTask)
+    clear(dataStore.supportFlags,    dataStore.deleteSupportFlag)
+    clear(dataStore.mentorNotes,     dataStore.deleteMentorNote)
+  } catch (e) {
+    console.warn('[4P3X] removeDemoData error:', e)
+  }
 }

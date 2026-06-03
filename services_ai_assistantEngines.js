@@ -38,7 +38,7 @@ const AI1_RESPONSES = {
     assistantKey: ASSISTANT_KEYS.AI_1,
     title:        'Dashboard Overview',
     summary:      'Welcome to the 4P3X Admin Monitoring Dashboard. Here is a quick tour of what you can do.',
-    suggestion:   'Start with the Overview screen. You can see key metrics at the top — total participants, active this week, at-risk, hours logged, activity records, review sessions, evidence, and check-ins. Use the left sidebar to navigate to each section.',
+    suggestion:   'Start with the Overview screen. You can see key metrics at the top — total participants, active this week, at-risk, hours logged, activityRecords, reviewSessions, evidence, and check-ins. Use the left sidebar to navigate to each section.',
     reason:       'The dashboard is your central hub for managing participant participant management.',
     dataUsed:     'Dashboard structure and navigation labels.',
     confidence:   'High',
@@ -49,7 +49,7 @@ const AI1_RESPONSES = {
     assistantKey: ASSISTANT_KEYS.AI_1,
     title:        'How the Dashboard Works',
     summary:      'The 4P3X Admin Monitoring Dashboard gives you a full view of all participants and their assigned activities in one place.',
-    suggestion:   'The dashboard has 5 sections in the sidebar: Overview, Participant Management (participants, activity, activity records, review sessions, check-ins, evidence, tasks), AI & Risk, Reports & Evidence, and System. Click any section to navigate.',
+    suggestion:   'The dashboard has 5 sections in the sidebar: Overview, Participant Management (participants, activity, activityRecords, reviewSessions, check-ins, evidence, tasks), AI & Risk, Reports & Evidence, and System. Click any section to navigate.',
     reason:       'Everything is organised so you can quickly find and manage participant data.',
     dataUsed:     'Dashboard navigation structure.',
     confidence:   'High',
@@ -82,7 +82,7 @@ const AI1_RESPONSES = {
     assistantKey: ASSISTANT_KEYS.AI_1,
     title:        'Opening a Participant Profile',
     summary:      'Click on any participant\'s name in the Participants table to open their full profile.',
-    suggestion:   'Go to Participants in the sidebar. You will see the participant list. Click on a name to open the profile. Inside you will find weekly target progress, activity logs, activity records, review sessions, check-ins, evidence records, support barriers, mentor notes, and risk flags.',
+    suggestion:   'Go to Participants in the sidebar. You will see the participant list. Click on a name to open the profile. Inside you will find weekly target progress, activity logs, activityRecords, reviewSessions, check-ins, evidenceRecords, support barriers, mentorNotes, and risk flags.',
     reason:       'The profile gives you the full picture of that participant\'s assigned activities.',
     dataUsed:     'Participants screen layout.',
     confidence:   'High',
@@ -126,7 +126,7 @@ const AI1_RESPONSES = {
     assistantKey: ASSISTANT_KEYS.AI_1,
     title:        'Using Reports',
     summary:      'Reports generate a full activity summary per participant for compliance and review.',
-    suggestion:   'Go to Reports in the sidebar. Select a participant from the list. The report shows all activity logs, activity records, review sessions, check-ins, evidence records, and mentor notes. You can print or export the report. Remember: reports are support summaries only and do not guarantee compliance or .',
+    suggestion:   'Go to Reports in the sidebar. Select a participant from the list. The report shows all activity logs, activityRecords, reviewSessions, check-ins, evidenceRecords, and mentorNotes. You can print or export the report. Remember: reports are support summaries only and do not guarantee compliance or .',
     reason:       'Reports help you evidence assigned activities for progress reviews.',
     dataUsed:     'Reports screen layout.',
     confidence:   'High',
@@ -159,7 +159,7 @@ const AI1_RESPONSES = {
     assistantKey: ASSISTANT_KEYS.AI_1,
     title:        'Starting Your Day on the Dashboard',
     summary:      'Here is a recommended daily starting routine for coaches using 4P3X Learning & Monitoring Base OS™.',
-    suggestion:   'Step 1: Review the At Risk metric card on the Overview — follow up with any high/critical participants. Step 2: Check Open Support Flags for urgent welfare concerns. Step 3: Review missed check-ins. Step 4: Look at upcoming review sessions and send preparation reminders. Step 5: Check evidence gaps before any review meetings. For data-based prioritisation, ask 4P3X Intelligent AI 2.',
+    suggestion:   'Step 1: Review the At Risk metric card on the Overview — follow up with any high/critical participants. Step 2: Check Open Support Flags for urgent welfare concerns. Step 3: Review missed check-ins. Step 4: Look at upcoming reviewSessions and send preparation reminders. Step 5: Check evidence gaps before any review meetings. For data-based prioritisation, ask 4P3X Intelligent AI 2.',
     reason:       'A consistent daily routine ensures no participant falls through the gaps.',
     dataUsed:     'Dashboard overview layout and workflow guidance.',
     confidence:   'High',
@@ -249,7 +249,7 @@ export function handleAi1Query(actionId, context = {}) {
 // ============================================================
 // AI 2 — Progress Insight
 // Handles: data correlation, weekly progress, evidence gaps,
-//          missed check-ins, risk flags, activity records, review sessions.
+//          missed check-ins, risk flags, activityRecords, reviewSessions.
 // Forbidden: dashboard tour, PWA tutorial, motivation, legal.
 // ============================================================
 
@@ -323,7 +323,7 @@ export function handleAi2Query(actionId, context = {}) {
   }
 
   const {
-    participants = [], activityLogs = [], activity records = [], review sessions = [],
+    participants = [], activityLogs = [], activityRecords = [], reviewSessions = [],
     checkIns = [], evidenceRecords = [], supportFlags = [], tasks = [],
     weeklyTarget = 35, isDemoMode = false, targetParticipant = null,
     query = '',
@@ -339,8 +339,8 @@ export function handleAi2Query(actionId, context = {}) {
 
   const stores = {
     activityLogs:    isDemoMode ? activityLogs    : activityLogs.filter(r => !r.isDemo),
-    activity records:    isDemoMode ? activity records    : activity records.filter(r => !r.isDemo),
-    review sessions:      isDemoMode ? review sessions      : review sessions.filter(r => !r.isDemo),
+    activityRecords:    isDemoMode ? activityRecords    : activityRecords.filter(r => !r.isDemo),
+    reviewSessions:      isDemoMode ? reviewSessions      : reviewSessions.filter(r => !r.isDemo),
     checkIns:        isDemoMode ? checkIns        : checkIns.filter(r => !r.isDemo),
     evidenceRecords: isDemoMode ? evidenceRecords : evidenceRecords.filter(r => !r.isDemo),
     supportFlags:    isDemoMode ? supportFlags    : supportFlags.filter(r => !r.isDemo),
@@ -378,11 +378,11 @@ export function handleAi2Query(actionId, context = {}) {
         d.hasUpcomingInterview         ? `📅 ${d.upcoming.length} upcoming review session(s). Check preparation.` : '',
         d.status === 'target_complete' ? '✅ Target complete. Encourage continued activity.' : '',
       ].filter(Boolean).join(' '),
-      reason:       `Based on ${d.weekHours}h logged, ${d.weekApps.length} activity records, ${d.weekCIs.length} check-ins, ${d.evs.length} evidence records, ${d.flags.length} open flags.`,
-      dataUsed:     `Activity logs, activity records, check-ins, evidence, support flags for ${js.displayName}.`,
+      reason:       `Based on ${d.weekHours}h logged, ${d.weekApps.length} activityRecords, ${d.weekCIs.length} check-ins, ${d.evs.length} evidenceRecords, ${d.flags.length} open flags.`,
+      dataUsed:     `Activity logs, activityRecords, check-ins, evidence, supportFlags for ${js.displayName}.`,
       confidence:   d.weekHours > 0 ? 'High' : 'Medium',
       urgency,
-      nextActions:  ['Review full profile', 'Check evidence records', 'Log a coach note'],
+      nextActions:  ['Review full profile', 'Check evidenceRecords', 'Log a coach note'],
     })
   }
 
@@ -395,10 +395,10 @@ export function handleAi2Query(actionId, context = {}) {
       summary:      'All participants are currently on track based on available data.',
       suggestion:   'Continue monitoring weekly activity. Check back later as the week progresses.',
       reason:       `All ${activeParticipants.length} participants are meeting targets with no open flags or missed check-ins.`,
-      dataUsed:     'Activity logs, check-ins, support flags (this week).',
+      dataUsed:     'Activity logs, check-ins, supportFlags (this week).',
       confidence:   'Medium',
       urgency:      'Low',
-      nextActions:  ['Review evidence uploads', 'Prepare for upcoming review sessions'],
+      nextActions:  ['Review evidence uploads', 'Prepare for upcoming reviewSessions'],
     })
     const topItems = needsAttention.slice(0, 5).map(d => {
       const reasons = []
@@ -413,11 +413,11 @@ export function handleAi2Query(actionId, context = {}) {
       title:        `${needsAttention.length} Participant(s) Need Attention Today`,
       summary:      `${needsAttention.length} participant(s) require follow-up based on this week's activity data.`,
       suggestion:   topItems,
-      reason:       'Identified based on weekly target progress, missed check-ins, and open support flags.',
-      dataUsed:     'Activity logs, check-ins, support flags for all participants this week.',
+      reason:       'Identified based on weekly target progress, missed check-ins, and open supportFlags.',
+      dataUsed:     'Activity logs, check-ins, supportFlags for all participants this week.',
       confidence:   'High',
       urgency:      needsAttention.some(d => d.status === 'high_risk') ? 'Critical' : 'High',
-      nextActions:  ['Open each flagged participant\'s profile', 'Log mentor notes', 'Consider scheduling a support call'],
+      nextActions:  ['Open each flagged participant\'s profile', 'Log mentorNotes', 'Consider scheduling a support call'],
     })
   }
 
@@ -433,7 +433,7 @@ export function handleAi2Query(actionId, context = {}) {
       dataUsed:     'Weekly activity logs for all participants.',
       confidence:   'Medium',
       urgency:      'Low',
-      nextActions:  ['Check evidence gaps', 'Review upcoming review sessions'],
+      nextActions:  ['Check evidence gaps', 'Review upcoming reviewSessions'],
     })
     const list = atRisk.slice(0, 8).map(d =>
       `• ${d.js.displayName} — ${d.pct}% (${d.weekHours}h / ${d.target}h) — ${d.status.replace(/_/g,' ')}`
@@ -457,24 +457,24 @@ export function handleAi2Query(actionId, context = {}) {
     if (gaps.length === 0) return buildAIResponse({
       assistantKey: ASSISTANT_KEYS.AI_2,
       title:        'No Evidence Gaps Detected',
-      summary:      'All participants with activity records have at least one evidence record.',
+      summary:      'All participants with activityRecords have at least one evidence record.',
       suggestion:   'Continue encouraging participants to upload evidence regularly.',
-      reason:       'Checked activity records vs evidence records for all active participants.',
-      dataUsed:     'Activity Records and evidence records.',
+      reason:       'Checked activityRecords vs evidenceRecords for all active participants.',
+      dataUsed:     'Activity Records and evidenceRecords.',
       confidence:   'Medium',
       urgency:      'Low',
       nextActions:  ['Review evidence quality', 'Remind participants to upload screenshots/emails'],
     })
     const list = gaps.slice(0, 6).map(d =>
-      `• ${d.js.displayName} — ${d.weekApps.length} app(s) but 0 evidence records`
+      `• ${d.js.displayName} — ${d.weekApps.length} app(s) but 0 evidenceRecords`
     ).join('\n')
     return buildAIResponse({
       assistantKey: ASSISTANT_KEYS.AI_2,
       title:        `${gaps.length} Participant(s) Have Evidence Gaps`,
-      summary:      `${gaps.length} participant(s) have submitted activity records but have not uploaded any supporting evidence.`,
+      summary:      `${gaps.length} participant(s) have submitted activityRecords but have not uploaded any supporting evidence.`,
       suggestion:   list + '\n\nRemind these participants to upload confirmation emails, screenshots, or other evidence via their PWA.',
       reason:       'Evidence is needed to support compliance verification and progress reviews.',
-      dataUsed:     'Activity Records and evidence records for all participants.',
+      dataUsed:     'Activity Records and evidenceRecords for all participants.',
       confidence:   'High',
       urgency:      'Medium',
       nextActions:  ['Contact participants with evidence gaps', 'Send reminder to upload evidence'],
@@ -521,7 +521,7 @@ export function handleAi2Query(actionId, context = {}) {
       dataUsed:     'Activity logs for the current week.',
       confidence:   'Medium',
       urgency:      'Low',
-      nextActions:  ['Review weekly target completion', 'Check activity records and check-ins'],
+      nextActions:  ['Review weekly target completion', 'Check activityRecords and check-ins'],
     })
     const list = low.slice(0, 8).map(d =>
       `• ${d.js.displayName} — ${d.weekHours}h logged (${d.pct}% of ${d.target}h target)`
@@ -539,13 +539,13 @@ export function handleAi2Query(actionId, context = {}) {
     })
   }
 
-  // ── Upcoming review sessions ───────────────────────────────────
+  // ── Upcoming reviewSessions ───────────────────────────────────
   if (actionId === 'upcoming_interviews' || q.includes('review session')) {
     const withInterviews = insights.filter(d => d.hasUpcomingInterview)
     if (withInterviews.length === 0) return buildAIResponse({
       assistantKey: ASSISTANT_KEYS.AI_2,
       title:        'No Upcoming Review Sessions',
-      summary:      'No participants have upcoming review sessions logged at this time.',
+      summary:      'No participants have upcoming reviewSessions logged at this time.',
       suggestion:   'Encourage participants to log any review session invitations they receive via their PWA.',
       reason:       'Checked review session records for future dates.',
       dataUsed:     'Review Session records.',
@@ -560,13 +560,13 @@ export function handleAi2Query(actionId, context = {}) {
     return buildAIResponse({
       assistantKey: ASSISTANT_KEYS.AI_2,
       title:        `${withInterviews.length} Participant(s) With Upcoming Review Sessions`,
-      summary:      `${withInterviews.length} participant(s) have review sessions coming up.`,
+      summary:      `${withInterviews.length} participant(s) have reviewSessions coming up.`,
       suggestion:   list + '\n\nConsider checking in with these participants to confirm they have prepared.',
       reason:       'Upcoming review session support can improve employment outcomes.',
       dataUsed:     'Review Session records with future date/time.',
       confidence:   'High',
       urgency:      'Low',
-      nextActions:  ['Check review session preparation status', 'Log mentor notes for preparation support'],
+      nextActions:  ['Check review session preparation status', 'Log mentorNotes for preparation support'],
     })
   }
 
@@ -585,16 +585,16 @@ export function handleAi2Query(actionId, context = {}) {
       noCheckin.length > 0 ? `📋 ${noCheckin.length} participant(s) have no check-in this week — send reminders.` : '',
       attn.length      > 0 ? `⚠️ ${attn.length} participant(s) need attention — follow up before end of week.` : '',
       evGap.length     > 0 ? `📁 ${evGap.length} participant(s) have evidence gaps — request uploads.` : '',
-      withIv.length    > 0 ? `📅 ${withIv.length} participant(s) have upcoming review sessions — check preparation.` : '',
+      withIv.length    > 0 ? `📅 ${withIv.length} participant(s) have upcoming reviewSessions — check preparation.` : '',
     ].filter(Boolean)
 
     if (actions.length === 0) return buildAIResponse({
       assistantKey: ASSISTANT_KEYS.AI_2,
       title:        'All Clear — No Urgent Actions',
       summary:      'Based on available data, all participants appear to be on track this week.',
-      suggestion:   'Continue regular monitoring. Encourage check-ins, evidence uploads, and activity records.',
+      suggestion:   'Continue regular monitoring. Encourage check-ins, evidence uploads, and activityRecords.',
       reason:       `Checked ${activeParticipants.length} participants — no urgent flags.`,
-      dataUsed:     'Activity logs, check-ins, evidence, flags, review sessions for all participants.',
+      dataUsed:     'Activity logs, check-ins, evidence, flags, reviewSessions for all participants.',
       confidence:   'Medium',
       urgency:      'Low',
       nextActions:  ['Monitor mid-week activity', 'Review evidence quality'],
@@ -605,11 +605,11 @@ export function handleAi2Query(actionId, context = {}) {
       title:        `Coach Action Summary — ${new Date().toLocaleDateString('en-GB')}`,
       summary:      `${actions.length} action area(s) identified for today.`,
       suggestion:   actions.join('\n'),
-      reason:       'Derived from weekly activity, check-ins, support flags, evidence, and review session records.',
+      reason:       'Derived from weekly activity, check-ins, supportFlags, evidence, and review session records.',
       dataUsed:     'All 4P3X data stores for active participants.',
       confidence:   'High',
       urgency:      critical.length > 0 ? 'Critical' : flagged.length > 0 ? 'High' : 'Medium',
-      nextActions:  ['Work through each action in order', 'Log mentor notes after each follow-up'],
+      nextActions:  ['Work through each action in order', 'Log mentorNotes after each follow-up'],
     })
   }
 
@@ -624,7 +624,7 @@ export function handleAi2Query(actionId, context = {}) {
       dataUsed:     'Support flag definitions and risk level thresholds.',
       confidence:   'High',
       urgency:      'Medium',
-      nextActions:  ['Go to Support Risks', 'Review open flags', 'Log mentor notes for follow-up'],
+      nextActions:  ['Go to Support Risks', 'Review open flags', 'Log mentorNotes for follow-up'],
     })
   }
 
@@ -633,7 +633,7 @@ export function handleAi2Query(actionId, context = {}) {
     assistantKey: ASSISTANT_KEYS.AI_2,
     title:        'Progress Insight',
     summary:      `I can analyse data for ${activeParticipants.length} active participant(s). Try one of the quick actions above.`,
-    suggestion:   'Ask me about: who needs attention today, at-risk participants, evidence gaps, missed check-ins, low activity, upcoming review sessions, or a specific participant summary.',
+    suggestion:   'Ask me about: who needs attention today, at-risk participants, evidence gaps, missed check-ins, low activity, upcoming reviewSessions, or a specific participant summary.',
     reason:       '4P3X Intelligent AI 2 handles data correlation and coach-facing insights.',
     dataUsed:     'All 4P3X activity data.',
     confidence:   'High',
@@ -675,7 +675,7 @@ const AI3_RESPONSES = {
     title:        'How to Add a Job Activity Record',
     summary:      'You can track every job you apply for in the Activity Records section.',
     suggestion:   'Tap the Activity Records tab or use "Add Activity Record" on the home screen. Fill in:\n• Organisation/company name\n• Job title\n• Where you found it (job board, website, etc.)\n• Date applied\n• Status (applied, review session invited, offer, etc.)\n• Any notes\nTap Save. Your coach can see this too.',
-    reason:       'Tracking activity records helps your coach understand your activity tracking effort.',
+    reason:       'Tracking activityRecords helps your coach understand your activity tracking effort.',
     dataUsed:     'Activity Records screen — add activity record form.',
     confidence:   'High',
     nextActions:  ['Tap Activity Records', 'Tap the + button to add a new activity record'],
@@ -684,9 +684,9 @@ const AI3_RESPONSES = {
   add_interview: () => buildAIResponse({
     assistantKey: ASSISTANT_KEYS.AI_3,
     title:        'How to Add an Review Session',
-    summary:      'Log your review sessions so your coach can support your preparation.',
+    summary:      'Log your reviewSessions so your coach can support your preparation.',
     suggestion:   'Tap the Review Sessions tab. Tap the + button. Fill in:\n• Organisation/company name\n• Job title\n• Date and time\n• Location or video link\n• Preparation notes\n• Outcome (after the review session)\nTap Save. Your coach will be able to see this and may offer preparation support.',
-    reason:       'Logging review sessions helps your coach offer timely preparation advice.',
+    reason:       'Logging reviewSessions helps your coach offer timely preparation advice.',
     dataUsed:     'Review Sessions screen — add review session form.',
     confidence:   'High',
     nextActions:  ['Tap Review Sessions', 'Tap + to add an review session'],
@@ -729,7 +729,7 @@ const AI3_RESPONSES = {
     assistantKey: ASSISTANT_KEYS.AI_3,
     title:        'How to See Your Weekly Progress',
     summary:      'Your weekly progress is shown on the home screen and in the Progress section.',
-    suggestion:   'On the home screen you will see a progress ring showing your percentage of the weekly target. Below it you can see hours logged, activity records this week, review sessions, and check-ins. Tap the Progress tab to see a more detailed breakdown including a history of your activity.',
+    suggestion:   'On the home screen you will see a progress ring showing your percentage of the weekly target. Below it you can see hours logged, activityRecords this week, reviewSessions, and check-ins. Tap the Progress tab to see a more detailed breakdown including a history of your activity.',
     reason:       'Tracking progress helps you stay motivated and on target.',
     dataUsed:     'Home screen progress card and Progress screen layout.',
     confidence:   'High',
@@ -802,7 +802,7 @@ export function handleAi3Query(actionId, context = {}) {
     assistantKey: ASSISTANT_KEYS.AI_3,
     title:        '4P3X PWA Help',
     summary:      'I can show you how to use any part of your 4P3X app.',
-    suggestion:   'Try one of the quick action buttons above. I can explain: logging activity, adding activity records, adding review sessions, completing your check-in, adding evidence, requesting support, seeing your progress, or installing the app.',
+    suggestion:   'Try one of the quick action buttons above. I can explain: logging activity, adding activityRecords, adding reviewSessions, completing your check-in, adding evidence, requesting support, seeing your progress, or installing the app.',
     reason:       '4P3X Intelligent AI 3 provides usage guidance for the Participant PWA.',
     dataUsed:     'PWA screen layout and help library.',
     confidence:   'High',
@@ -849,8 +849,8 @@ export function handleAi4Query(actionId, context = {}) {
     weekHours    = 0,
     target       = 35,
     pct          = 0,
-    activity records = [],
-    review sessions   = [],
+    activityRecords = [],
+    reviewSessions   = [],
     checkIns     = [],
     evidenceRecords = [],
     barriers     = [],
@@ -873,7 +873,7 @@ export function handleAi4Query(actionId, context = {}) {
       reason:       `Weekly target: ${target}h. Logged this week: ${weekHours}h.`,
       dataUsed:     'Your logged activity hours and weekly target.',
       confidence:   'High',
-      nextActions:  pct >= 100 ? ['Add evidence for your activity records', 'Complete your daily check-in'] : ['Tap "Log Activity Now"', 'Even 30 minutes counts — start small'],
+      nextActions:  pct >= 100 ? ['Add evidence for your activityRecords', 'Complete your daily check-in'] : ['Tap "Log Activity Now"', 'Even 30 minutes counts — start small'],
     })
   }
 
@@ -882,9 +882,9 @@ export function handleAi4Query(actionId, context = {}) {
     const actions = []
     if (checkIns.length === 0)       actions.push('Complete your daily check-in first — it only takes a minute.')
     if (pct < 100)                   actions.push(`Log ${remaining}h more assigned activities to hit your weekly target.`)
-    if (activity records.length === 0)   actions.push('Try applying for at least 1 job today — even a quick activity record counts.')
-    if (evidenceRecords.length === 0 && activity records.length > 0) actions.push('Upload evidence for your activity record — a screenshot or email confirmation is enough.')
-    if (review sessions.length > 0)       actions.push('You have an review session coming up — spend time preparing today.')
+    if (activityRecords.length === 0)   actions.push('Try applying for at least 1 job today — even a quick activity record counts.')
+    if (evidenceRecords.length === 0 && activityRecords.length > 0) actions.push('Upload evidence for your activity record — a screenshot or email confirmation is enough.')
+    if (reviewSessions.length > 0)       actions.push('You have an review session coming up — spend time preparing today.')
     if (barriers.length > 0)         actions.push('You have mentioned barriers. Consider sending a support request to your coach.')
     if (actions.length === 0)        actions.push('You are doing great! Keep applying for roles and logging your activity.')
 
@@ -894,7 +894,7 @@ export function handleAi4Query(actionId, context = {}) {
       summary:      buildEncouragementMessage(pct, weekHours, target, remaining),
       suggestion:   actions.slice(0, 4).map((a, i) => `${i + 1}. ${a}`).join('\n'),
       reason:       'Based on your current weekly progress and activity data.',
-      dataUsed:     `${weekHours}h logged, ${activity records.length} activity record(s), ${checkIns.length} check-in(s), ${evidenceRecords.length} evidence record(s).`,
+      dataUsed:     `${weekHours}h logged, ${activityRecords.length} activity record(s), ${checkIns.length} check-in(s), ${evidenceRecords.length} evidence record(s).`,
       confidence:   'High',
       nextActions:  actions.slice(0, 3),
     })
@@ -911,13 +911,13 @@ export function handleAi4Query(actionId, context = {}) {
         `2. Search for ${pct >= 80 ? '1–2' : '3–5'} relevant jobs online.`,
         `3. Apply for at least ${pct >= 80 ? '1' : '2'} role(s) — log each one in Activity Records.`,
         '4. Log your activity time before you finish for the day.',
-        review sessions.length > 0 ? '5. Spend 20–30 minutes preparing for your upcoming review session.' : '5. Update your Progress portfolio or cover letter if needed.',
-        evidenceRecords.length === 0 && activity records.length > 0 ? '6. Upload evidence for your activity record (email screenshot is fine).' : '',
+        reviewSessions.length > 0 ? '5. Spend 20–30 minutes preparing for your upcoming review session.' : '5. Update your Progress portfolio or cover letter if needed.',
+        evidenceRecords.length === 0 && activityRecords.length > 0 ? '6. Upload evidence for your activity record (email screenshot is fine).' : '',
       ].filter(Boolean).join('\n'),
       reason:       'A simple daily plan helps reduce overwhelm and keeps you making progress.',
-      dataUsed:     `Progress: ${pct}%, ${weekHours}h logged. Activity Records: ${activity records.length}. Review Sessions: ${review sessions.length}.`,
+      dataUsed:     `Progress: ${pct}%, ${weekHours}h logged. Activity Records: ${activityRecords.length}. Review Sessions: ${reviewSessions.length}.`,
       confidence:   'High',
-      nextActions:  ['Tap Check-in to start', 'Tap Log Activity when done', 'Use Activity Records to track new job activity records'],
+      nextActions:  ['Tap Check-in to start', 'Tap Log Activity when done', 'Use Activity Records to track new job activityRecords'],
     })
   }
 
@@ -937,7 +937,7 @@ export function handleAi4Query(actionId, context = {}) {
 
   // ── Review session preparation ─────────────────────────────────
   if (actionId === 'interview_prep' || q.includes('review session')) {
-    const nextInterview = review sessions.find(i => new Date(i.dateTime) >= new Date())
+    const nextInterview = reviewSessions.find(i => new Date(i.dateTime) >= new Date())
     return buildAIResponse({
       assistantKey: ASSISTANT_KEYS.AI_4,
       title:        'Preparing for Your Review Session',
@@ -959,7 +959,7 @@ export function handleAi4Query(actionId, context = {}) {
       title:        'Making Your Activity Record Stronger',
       summary:      'A strong activity record helps you get noticed. Here are some quick improvements you can make today.',
       suggestion:   'Progress portfolio tips:\n• Start with a short personal statement (2–3 sentences) about who you are and what you are looking for.\n• List your most recent experience first.\n• Use simple, clear language — avoid jargon.\n• Quantify achievements if possible (e.g. "served 50+ customers a day").\n• Save as a PDF.\n\nCover letter tips:\n• Mention the specific job and company by name.\n• Say why you are interested in this role.\n• Give 2 examples of relevant skills or experience.\n• Keep it to one page.\n• End positively: "I look forward to hearing from you."\n\nIf you need extra help, send a support request to your coach.',
-      reason:       'Tailored activity records are more likely to get responses.',
+      reason:       'Tailored activityRecords are more likely to get responses.',
       dataUsed:     'Progress portfolio and cover letter guidance library.',
       confidence:   'High',
       nextActions:  ['Update your Progress portfolio with these tips', 'Tailor your cover letter for the next activity record', 'Ask your coach for a Progress portfolio review if needed'],
@@ -968,18 +968,18 @@ export function handleAi4Query(actionId, context = {}) {
 
   // ── Evidence advice ───────────────────────────────────────
   if (actionId === 'evidence_advice' || q.includes('evidence') || q.includes('proof') || q.includes('upload')) {
-    const hasEvidenceGap = activity records.length > 0 && evidenceRecords.length === 0
+    const hasEvidenceGap = activityRecords.length > 0 && evidenceRecords.length === 0
     return buildAIResponse({
       assistantKey: ASSISTANT_KEYS.AI_4,
       title:        'What Evidence Should You Add?',
       summary:      hasEvidenceGap
-        ? `You have ${activity records.length} activity record(s) logged but no evidence yet. Here is what to upload.`
+        ? `You have ${activityRecords.length} activity record(s) logged but no evidence yet. Here is what to upload.`
         : 'Here are the best types of evidence to keep for your activity tracking.',
-      suggestion:   'Good evidence to keep:\n• Activity Record confirmation emails — take a screenshot or save the email.\n• Review Session invitations — screenshot or forward to yourself.\n• Training or course certificates.\n• Screenshots of jobs you applied for (page with the activity record button).\n• Organisation responses (even rejections show you are actively applying).\n• Proof of skills activities (courses, workshops, volunteering).\n\nYou can add evidence records in the Evidence section of your app. A note with the date and what it is counts — you do not need to upload a file.',
+      suggestion:   'Good evidence to keep:\n• Activity Record confirmation emails — take a screenshot or save the email.\n• Review Session invitations — screenshot or forward to yourself.\n• Training or course certificates.\n• Screenshots of jobs you applied for (page with the activity record button).\n• Organisation responses (even rejections show you are actively applying).\n• Proof of skills activities (courses, workshops, volunteering).\n\nYou can add evidenceRecords in the Evidence section of your app. A note with the date and what it is counts — you do not need to upload a file.',
       reason:       'Evidence supports your progress record and helps your coach verify your assigned activities.',
-      dataUsed:     `Activity Records: ${activity records.length}. Evidence records: ${evidenceRecords.length}.`,
+      dataUsed:     `Activity Records: ${activityRecords.length}. Evidence records: ${evidenceRecords.length}.`,
       confidence:   'High',
-      nextActions:  ['Tap Evidence to add a record', 'Screenshot today\'s activity records as evidence', 'Ask your coach if you are unsure what counts'],
+      nextActions:  ['Tap Evidence to add a record', 'Screenshot today\'s activityRecords as evidence', 'Ask your coach if you are unsure what counts'],
     })
   }
 
@@ -1003,7 +1003,7 @@ export function handleAi4Query(actionId, context = {}) {
       assistantKey: ASSISTANT_KEYS.AI_4,
       title:        'Getting Support',
       summary:      'It is always OK to ask for support. Your coach is there to help you.',
-      suggestion:   'Tap the Support tab in your app. Select the type of barrier you are facing:\n• Confidence\n• Mental wellbeing\n• Transport\n• Childcare\n• Digital access issues\n• Help with Progress portfolio or activity records\n• Review Session support\n• Housing or financial pressure\n\nAdd a note explaining what is happening if you can. Tap Send. Your coach will receive this and will be in touch.\n\nYou do not have to manage everything on your own.',
+      suggestion:   'Tap the Support tab in your app. Select the type of barrier you are facing:\n• Confidence\n• Mental wellbeing\n• Transport\n• Childcare\n• Digital access issues\n• Help with Progress portfolio or activityRecords\n• Review Session support\n• Housing or financial pressure\n\nAdd a note explaining what is happening if you can. Tap Send. Your coach will receive this and will be in touch.\n\nYou do not have to manage everything on your own.',
       reason:       'Asking for support is a positive step. Coaches can adjust your plan or connect you with further help.',
       dataUsed:     'Support request screen — barrier types.',
       confidence:   'High',
@@ -1018,11 +1018,11 @@ export function handleAi4Query(actionId, context = {}) {
       assistantKey: ASSISTANT_KEYS.AI_4,
       title:        `You Can Do This, ${name}`,
       summary:      msg,
-      suggestion:   activity records.length > 0
-        ? `You have already submitted ${activity records.length} activity record(s) this week — that is real effort. Every activity record is a step forward. Keep going.`
+      suggestion:   activityRecords.length > 0
+        ? `You have already submitted ${activityRecords.length} activity record(s) this week — that is real effort. Every activity record is a step forward. Keep going.`
         : 'Every activity tracking starts with a first step. Your target this week is achievable. Start with 10 minutes of browsing today and build from there.',
       reason:       'Consistent small actions lead to results. Progress is progress, no matter how small.',
-      dataUsed:     `Progress: ${pct}%, ${weekHours}h logged, ${activity records.length} activity record(s).`,
+      dataUsed:     `Progress: ${pct}%, ${weekHours}h logged, ${activityRecords.length} activity record(s).`,
       confidence:   'High',
       nextActions:  ['Log today\'s activity', 'Complete your check-in', pct < 100 ? 'Aim for 1 more job activity record today' : 'Keep your evidence up to date'],
     })
@@ -1048,7 +1048,7 @@ export function handleAi4Query(actionId, context = {}) {
     summary:      buildEncouragementMessage(pct, weekHours, target, remaining),
     suggestion:   'Use the quick action buttons above or ask me about: what to do next, planning your day, how many hours you need, review session preparation, improving your activity record, what evidence to add, or how to get support.',
     reason:       '4P3X Intelligent AI 4 is here to support and encourage you through your activity tracking.',
-    dataUsed:     `Progress: ${pct}%, ${weekHours}h logged, ${activity records.length} activity record(s).`,
+    dataUsed:     `Progress: ${pct}%, ${weekHours}h logged, ${activityRecords.length} activity record(s).`,
     confidence:   'High',
     nextActions:  ['Tap a quick action button', 'Ask me anything about your activity tracking'],
   })

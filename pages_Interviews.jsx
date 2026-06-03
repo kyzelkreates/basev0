@@ -94,7 +94,7 @@ function InterviewModal({ existing, participants, onClose, onSaved }) {
   )
 }
 
-export default function Review Sessions() {
+export default function ReviewSessions() {
   const config     = useConfigStore(s => s.config)
   const isDemoMode = config.demoModeEnabled
   const dataStore  = useDataStore()
@@ -105,11 +105,11 @@ export default function Review Sessions() {
     setParticipants(isDemoMode ? jobseekerService.getAll() : jobseekerService.getRealJobseekers())
   }, [isDemoMode])
 
-  const review sessions = isDemoMode ? dataStore.interviews : dataStore.interviews.filter(r => !r.isDemo)
+  const reviewSessions = isDemoMode ? dataStore.interviews : dataStore.interviews.filter(r => !r.isDemo)
   const jsMap = participants.reduce((a,j) => ({...a,[j.id]:j}), {})
   const now   = new Date()
-  const upcoming = review sessions.filter(iv => new Date(iv.dateTime) >= now).sort((a,b) => new Date(a.dateTime)-new Date(b.dateTime))
-  const past     = review sessions.filter(iv => new Date(iv.dateTime) < now).sort((a,b) => new Date(b.dateTime)-new Date(a.dateTime))
+  const upcoming = reviewSessions.filter(iv => new Date(iv.dateTime) >= now).sort((a,b) => new Date(a.dateTime)-new Date(b.dateTime))
+  const past     = reviewSessions.filter(iv => new Date(iv.dateTime) < now).sort((a,b) => new Date(b.dateTime)-new Date(a.dateTime))
 
   const Section = ({ title, items, icon, color }) => (
     <div className="bg-[#0d1426] border border-slate-800/60 rounded-xl overflow-hidden">

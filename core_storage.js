@@ -35,8 +35,8 @@ import { create } from 'zustand'
     'cl:participant:selected': '4p3x:participant:selected',
     'cl:data:participants':    '4p3x:data:participants',
     'cl:data:activityLogs':  '4p3x:data:activityLogs',
-    'cl:data:activity records':  '4p3x:data:activityRecords',
-    'cl:data:review sessions':    '4p3x:data:reviewSessions',
+    'cl:data:activityRecords':  '4p3x:data:activityRecords',
+    'cl:data:reviewSessions':    '4p3x:data:reviewSessions',
     'cl:data:checkIns':      '4p3x:data:checkIns',
     'cl:data:evidenceRecords':'4p3x:data:evidenceRecords',
     'cl:data:tasks':         '4p3x:data:tasks',
@@ -306,8 +306,8 @@ export const useDataStore = create((set, get) => ({
   mentorNotes:     persist.get(STORAGE_KEYS.MENTOR_NOTES, []),
 
   // Legacy aliases (TODO: migrate all component references)
-  get activity records()  { return this.activityRecords },
-  get review sessions()    { return this.reviewSessions },
+  get activityRecordsAlias() { return this.activityRecords },
+  get reviewSessionsAlias()  { return this.reviewSessions },
   get coachNotes()    { return this.mentorNotes },
 
   // ── Activity Logs ──

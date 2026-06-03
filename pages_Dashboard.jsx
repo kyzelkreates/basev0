@@ -343,8 +343,8 @@ export default function Dashboard() {
   // ── Subscribe to individual arrays (stable selectors) ──────
   // This avoids re-rendering on unrelated store updates
   const activityLogs   = useDataStore(s => s.activityLogs)
-  const activity records   = useDataStore(s => s.applications)
-  const review sessions     = useDataStore(s => s.interviews)
+  const activityRecords   = useDataStore(s => s.applications)
+  const reviewSessions     = useDataStore(s => s.interviews)
   const checkIns       = useDataStore(s => s.checkIns)
   const evidenceRecs   = useDataStore(s => s.evidenceRecords)
   const tasks          = useDataStore(s => s.tasks)
@@ -366,20 +366,20 @@ export default function Dashboard() {
   // ── Compute metrics whenever underlying data changes ────────
   useEffect(() => {
     if (participants.length === 0) return
-    const snap = { activityLogs, activity records, review sessions, checkIns }
+    const snap = { activityLogs, activityRecords, reviewSessions, checkIns }
     const m = {}
     participants.forEach(j => {
       m[j.id] = deriveJobseekerMetrics(j.id, snap, j.weeklyTargetHours || weeklyTarget)
     })
     setAllMetrics(m)
-  }, [participants, activityLogs, activity records, review sessions, checkIns, weeklyTarget])
+  }, [participants, activityLogs, activityRecords, reviewSessions, checkIns, weeklyTarget])
 
   // ── Demo-mode filter helper ─────────────────────────────────
   const df = (arr) => isDemoMode ? (arr || []) : (arr || []).filter(r => !r.isDemo)
 
   const flags     = df(supportFlags)
-  const apps      = df(activity records)
-  const ivs       = df(review sessions)
+  const apps      = df(activityRecords)
+  const ivs       = df(reviewSessions)
   const evidence  = df(evidenceRecs)
   const chks      = df(checkIns)
   const tks       = df(tasks)
@@ -499,8 +499,8 @@ export default function Dashboard() {
 
       {/* ── ROW 2: ACTIVITY KPIs ────────────────────────── */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <KpiCard label="Activity Records This Week" value={appsThisWeek}    sub={`${apps.length} total recorded`}        icon="Send"           color={C.blue}   onClick={() => navigate('/activity records')} />
-        <KpiCard label="Review Sessions Upcoming"    value={ivsUpcoming.length} sub={`${ivsThisWeek} this week`}          icon="CalendarCheck"  color={C.green}  onClick={() => navigate('/review sessions')} />
+        <KpiCard label="Activity Records This Week" value={appsThisWeek}    sub={`${apps.length} total recorded`}        icon="Send"           color={C.blue}   onClick={() => navigate('/activityRecords')} />
+        <KpiCard label="Review Sessions Upcoming"    value={ivsUpcoming.length} sub={`${ivsThisWeek} this week`}          icon="CalendarCheck"  color={C.green}  onClick={() => navigate('/reviewSessions')} />
         <KpiCard label="Check-ins Today"        value={chksToday}       sub={`${chksWeek} this week`}                icon="ClipboardCheck" color={C.gold}   onClick={() => navigate('/check-ins')} />
         <KpiCard label="Open Support Flags"     value={openFlags.length} sub={`${pendingTasks} tasks pending`}       icon="AlertTriangle"  color={openFlags.length > 0 ? C.red : C.green} pulse={openFlags.length > 0} onClick={() => navigate('/support-risks')} />
       </div>
@@ -509,7 +509,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         <KpiCard label="Evidence Gaps"     value={evidenceGaps}   sub="Active with no evidence uploaded" icon="FileWarning"  color={evidenceGaps > 0 ? C.amber : C.green} pulse={evidenceGaps > 2} onClick={() => navigate('/evidence')} />
         <KpiCard label="Overdue Tasks"     value={overdueTasks}   sub={`${pendingTasks} total open`}      icon="ListTodo"    color={overdueTasks > 0 ? C.red : C.green}   pulse={overdueTasks > 0} onClick={() => navigate('/tasks')} />
-        <KpiCard label="Total Activity Records" value={apps.length}   sub="All time recorded"                icon="FileText"    color={C.silver} onClick={() => navigate('/activity records')} />
+        <KpiCard label="Total Activity Records" value={apps.length}   sub="All time recorded"                icon="FileText"    color={C.silver} onClick={() => navigate('/activityRecords')} />
         <KpiCard label="Evidence Records"  value={evidence.length} sub="Total uploaded"                  icon="Paperclip"   color={C.silver} onClick={() => navigate('/evidence')} />
       </div>
 
@@ -534,7 +534,7 @@ export default function Dashboard() {
           <SectionTitle icon="ShieldAlert" label="Open Support Flags" color={C.red} onMore={() => navigate('/support-risks')} />
           <div className="space-y-2">
             {topFlags.length === 0
-              ? <Empty icon="ShieldCheck" text="No open support flags." />
+              ? <Empty icon="ShieldCheck" text="No open supportFlags." />
               : topFlags.map(f => <FlagRow key={f.id} flag={f} jsName={jsMap[f.jobseekerId]?.displayName} />)}
           </div>
         </div>
@@ -562,12 +562,12 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Upcoming review sessions */}
+        {/* Upcoming reviewSessions */}
         <div className="rounded-xl p-4" style={{ background: '#070d1a', border: `1px solid ${C.blue}14` }}>
-          <SectionTitle icon="CalendarCheck" label="Upcoming Review Sessions" color={C.blue} onMore={() => navigate('/review sessions')} />
+          <SectionTitle icon="CalendarCheck" label="Upcoming Review Sessions" color={C.blue} onMore={() => navigate('/reviewSessions')} />
           <div className="space-y-2">
             {nextIvs.length === 0
-              ? <Empty icon="CalendarCheck" text="No upcoming review sessions." />
+              ? <Empty icon="CalendarCheck" text="No upcoming reviewSessions." />
               : nextIvs.map(iv => <IvCard key={iv.id} iv={iv} jsName={jsMap[iv.jobseekerId]?.displayName} />)}
           </div>
         </div>
@@ -591,8 +591,8 @@ export default function Dashboard() {
         <div className="rounded-xl p-4 flex flex-col gap-2" style={{ background: '#070d1a', border: `1px solid ${C.gold}14` }}>
           <SectionTitle icon="Zap" label="Quick Actions" color={C.gold} />
           <QA label="Add Participant"        icon="UserPlus"       color={C.gold}   onClick={() => navigate('/participant-setup')} />
-          <QA label="New Activity Record"      icon="Send"           color={C.blue}   onClick={() => navigate('/activity records')} />
-          <QA label="Schedule Review Session"   icon="CalendarPlus"   color={C.green}  onClick={() => navigate('/review sessions')} />
+          <QA label="New Activity Record"      icon="Send"           color={C.blue}   onClick={() => navigate('/activityRecords')} />
+          <QA label="Schedule Review Session"   icon="CalendarPlus"   color={C.green}  onClick={() => navigate('/reviewSessions')} />
           <QA label="Record Check-in"      icon="ClipboardCheck" color={C.gold}   onClick={() => navigate('/check-ins')} />
           <QA label="Upload Evidence"      icon="Upload"         color={C.silver} onClick={() => navigate('/evidence')} />
           <QA label="Create Task"          icon="ListPlus"       color={C.amber}  onClick={() => navigate('/tasks')} />

@@ -77,7 +77,7 @@ function ProgrammePanel() {
           onChange={e => set('weeklyTargetHoursDefault', +e.target.value)}
           className="bg-slate-900/60 border border-slate-700/50 rounded-lg px-3 py-1.5 text-sm text-white w-24 focus:outline-none focus:border-[#d4af37]/50"/>
       </SettingRow>
-      <SettingRow label="Default Activity Records Target (weekly)" sub="Minimum weekly activity records to flag if not met">
+      <SettingRow label="Default Activity Records Target (weekly)" sub="Minimum weekly activityRecords to flag if not met">
         <input type="number" min="0" max="50" value={form.activityTargetDefault}
           onChange={e => set('activityTargetDefault', +e.target.value)}
           className="bg-slate-900/60 border border-slate-700/50 rounded-lg px-3 py-1.5 text-sm text-white w-24 focus:outline-none focus:border-[#d4af37]/50"/>

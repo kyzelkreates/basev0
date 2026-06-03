@@ -257,7 +257,7 @@ export default function LandingPage() {
           <SectionHeader number="1" label="Admin Monitoring Dashboard" color={GOLD} icon="LayoutDashboard" />
           <p style={{ fontSize: 13, color: '#8b9ab5', lineHeight: 1.65, marginBottom: 16 }}>
             Full monitoring dashboard for admins, mentors, and practitioners.
-            Manage participants, review activity records, check evidence,
+            Manage participants, review activityRecords, check evidence,
             monitor progress, and act on support risk flags.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 20 }}>

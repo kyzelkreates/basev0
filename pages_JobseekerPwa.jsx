@@ -209,8 +209,8 @@ export default function JobseekerPwa() {
     if (!participant) return
     const snap = {
       activityLogs: (dataStore.activityLogs || []).filter(r => isDemoMode ? true : !r.isDemo),
-      activity records: (dataStore.applications || []).filter(r => isDemoMode ? true : !r.isDemo),
-      review sessions:   (dataStore.interviews   || []).filter(r => isDemoMode ? true : !r.isDemo),
+      activityRecords: (dataStore.applications || []).filter(r => isDemoMode ? true : !r.isDemo),
+      reviewSessions:   (dataStore.interviews   || []).filter(r => isDemoMode ? true : !r.isDemo),
       checkIns:     (dataStore.checkIns     || []).filter(r => isDemoMode ? true : !r.isDemo),
     }
     setMetrics(deriveJobseekerMetrics(participant.id, snap, participant.weeklyTargetHours || 35))
@@ -327,7 +327,7 @@ function HomeTab({ js, metrics }) {
       <div className="grid grid-cols-2 gap-3">
         {[
           { label: 'Apps this week',     value: metrics?.applicationCountWeek ?? 0, color: BLUE,   icon: 'Send' },
-          { label: 'Upcoming review sessions',value: metrics?.interviewsUpcoming ?? 0,   color: GREEN,  icon: 'CalendarCheck' },
+          { label: 'Upcoming reviewSessions',value: metrics?.interviewsUpcoming ?? 0,   color: GREEN,  icon: 'CalendarCheck' },
           { label: 'Check-ins this week',value: metrics?.checkInsThisWeek ?? 0,     color: GOLD,   icon: 'ClipboardCheck' },
           { label: 'Progress status',    value: (metrics?.progressStatus || 'on_track').replace(/_/g,' '), color: col, icon: 'TrendingUp' },
         ].map(s => (
@@ -526,7 +526,7 @@ const CI_QUESTIONS = [
   'Did you apply for any jobs today?',
   'Did you contact any organisations or recruiters?',
   'Did you update your Progress portfolio, cover letter, or portfolio?',
-  'Do you have any review sessions coming up?',
+  'Do you have any reviewSessions coming up?',
   'Are there any barriers stopping you from activity trackinging?',
   'Do you need support from your mentor or practitioner?',
   'How confident do you feel about your progress today? (1–10)',

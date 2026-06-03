@@ -136,7 +136,7 @@ function PWAAssistants({ participant, metrics, weeklyTarget, dataStore }) {
   const evs  = (dataStore?.evidenceRecords || []).filter(r => r.jobseekerId === jsId && !r.isDemo)
 
   const ai3Context = { participant }
-  const ai4Context = { participant, weekHours: logged, target, pct, remaining, activity records: apps, review sessions: ivs, checkIns: cis, evidenceRecords: evs, barriers: [] }
+  const ai4Context = { participant, weekHours: logged, target, pct, remaining, activityRecords: apps, reviewSessions: ivs, checkIns: cis, evidenceRecords: evs, barriers: [] }
 
   return (
     <div className="space-y-3">
@@ -240,7 +240,7 @@ function HomeScreen({ participant, metrics, weeklyTarget, onQuickLog, navigate, 
       <div className="grid grid-cols-2 gap-3">
         {[
           { label:'Check In', icon:'CheckSquare', tab:'checkin', color:'text-emerald-400' },
-          { label:'Add Activity Record', icon:'FileText', tab:'activity records', color:'text-[#d4af37]' },
+          { label:'Add Activity Record', icon:'FileText', tab:'activityRecords', color:'text-[#d4af37]' },
           { label:'View Progress', icon:'BarChart3', tab:'progress', color:'text-purple-400' },
           { label:'Request Support', icon:'HelpCircle', tab:'support', color:'text-red-400' },
         ].map(a => (
@@ -514,7 +514,7 @@ function BottomNav({ current, onNav }) {
   const tabs = [
     { id:'home',         icon:'Home',        label:'Home' },
     { id:'log',          icon:'Clock',        label:'Log Time' },
-    { id:'activity records', icon:'FileText',     label:'Apply' },
+    { id:'activityRecords', icon:'FileText',     label:'Apply' },
     { id:'checkin',      icon:'CheckSquare',  label:'Check In' },
     { id:'progress',     icon:'BarChart3',    label:'Progress' },
   ]
@@ -556,7 +556,7 @@ function ApplicationsScreen({ participant, dataStore, onBack }) {
       {apps.length === 0 ? (
         <div className="py-8 text-center">
           <Icon name="FileText" size={24} className="text-slate-700 mx-auto mb-2"/>
-          <p className="text-xs text-slate-600">No activity records yet. Tap + to add one.</p>
+          <p className="text-xs text-slate-600">No activityRecords yet. Tap + to add one.</p>
         </div>
       ) : apps.map(a => (
         <div key={a.id} className="bg-[#0d1426] border border-slate-800/60 rounded-xl p-4">
@@ -642,8 +642,8 @@ export default function JobseekerApp() {
 
   const snap = {
     activityLogs: dataStore.activityLogs,
-    activity records: dataStore.applications,
-    review sessions:   dataStore.interviews,
+    activityRecords: dataStore.applications,
+    reviewSessions:   dataStore.interviews,
     checkIns:     dataStore.checkIns,
   }
 
@@ -659,7 +659,7 @@ export default function JobseekerApp() {
     switch(tab) {
       case 'log':          return <LogActivityScreen participant={participant} onBack={() => setTab('home')} onSaved={() => {}}/>
       case 'checkin':      return <CheckInScreen participant={participant} onBack={() => setTab('home')}/>
-      case 'activity records': return <ApplicationsScreen participant={participant} dataStore={dataStore} onBack={() => setTab('home')}/>
+      case 'activityRecords': return <ApplicationsScreen participant={participant} dataStore={dataStore} onBack={() => setTab('home')}/>
       case 'progress':     return <ProgressScreen participant={participant} metrics={metrics} weeklyTarget={weeklyTarget}/>
       case 'support':      return <SupportScreen participant={participant} onBack={() => setTab('home')}/>
       default:             return (
