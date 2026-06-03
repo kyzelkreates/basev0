@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — AI Configuration
+ * 4P3X Refractable Base OS™ — AI Configuration
  * 4P3X 4P3X Base Intelligence Layer™
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  *

@@ -4,7 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Vite Config
+ * 4P3X Refractable Base OS™ — Vite Config
  * Participant PWA + Admin Monitoring Dashboard
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================
@@ -19,15 +19,15 @@ export default defineConfig({
       registerType: 'autoUpdate',
 
       manifest: {
-        name:             '4P3X Learning & Monitoring Base OS™',
-        short_name:       '4P3X Base OS',
-        description:      'Reusable participant PWA and admin monitoring dashboard powered by 4P3X Intelligent AI.',
+        name:             '4P3X Refractable Base OS™',
+        short_name:       '4P3X Base',
+        description:      'Reusable participant PWA and admin monitoring dashboard Powered by 4P3X Intelligent AI — Created by Kyzel Kreates.',
         theme_color:      '#090e1c',
         background_color: '#050810',
         display:          'standalone',
         orientation:      'any',
         scope:            '/',
-        start_url:        '/#/participant-app',
+        start_url:        '/#/learner',
         categories:       ['business', 'productivity'],
         icons: [
           {
@@ -45,17 +45,17 @@ export default defineConfig({
         ],
         shortcuts: [
           {
-            name:        'Participant App',
-            short_name:  'Participant',
-            url:         '/#/participant-app',
-            description: 'Open the 4P3X Participant App',
+            name:        'Learner PWA',
+            short_name:  'Learner',
+            url:         '/#/learner',
+            description: 'Open the 4P3X Refractable Base OS Learner PWA',
             icons: [{ src: 'icons/icon-192x192.png', sizes: '192x192' }],
           },
           {
             name:        'Admin Dashboard',
             short_name:  'Dashboard',
             url:         '/#/dashboard',
-            description: 'Open the 4P3X Admin Monitoring Dashboard',
+            description: 'Open the 4P3X Refractable Base OS Admin Dashboard',
             icons: [{ src: 'icons/icon-192x192.png', sizes: '192x192' }],
           },
         ],
@@ -69,7 +69,7 @@ export default defineConfig({
             urlPattern: /^https:\/\/fonts\.(googleapis|gstatic)\.com\/.*/i,
             handler:    'CacheFirst',
             options: {
-              cacheName:  '4p3x-base-os-fonts',
+              cacheName:  '4p3x-refractable-base-os-fonts',
               expiration: { maxEntries: 30, maxAgeSeconds: 60 * 60 * 24 * 365 },
             },
           },

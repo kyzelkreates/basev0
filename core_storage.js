@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — SINGLE SOURCE OF TRUTH
+ * 4P3X Refractable Base OS™ — SINGLE SOURCE OF TRUTH
  * Participant PWA + Admin Monitoring Dashboard
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  *
@@ -129,7 +129,7 @@ export const genId = () => `${Date.now()}_${Math.random().toString(36).slice(2, 
 
 // ─── App Config Store ─────────────────────────────────────────
 const DEFAULT_APP_CONFIG = {
-  appName:                   '4P3X Learning & Monitoring Base OS™',
+  appName:                   '4P3X Refractable Base OS™',
   brandLine:                 'Powered by 4P3X Intelligent AI — Created by Kyzel Kreates',
   organisationName:          '4P3X Base Organisation',
   weeklyTargetHoursDefault:  35,
@@ -294,7 +294,7 @@ export const useParticipantStore = create((set) => ({
 // still reference useJobseekerStore (TODO: migrate all references)
 export const useJobseekerStore = useParticipantStore
 
-// ─── Data Store — all 4P3X Base OS records ────────────────────
+// ─── Data Store — all 4P3X Refractable Base OS™ records ────────────────────
 export const useDataStore = create((set, get) => ({
   activityLogs:    persist.get(STORAGE_KEYS.ACTIVITY_LOGS, []),
   activityRecords: persist.get(STORAGE_KEYS.APPLICATIONS, []),

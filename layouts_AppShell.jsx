@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — App Shell
+ * 4P3X Refractable Base OS™ — App Shell
  * Burger menu drawer, responsive layout.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================

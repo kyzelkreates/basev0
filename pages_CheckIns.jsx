@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Check-ins Page
+ * 4P3X Refractable Base OS™ — Check-ins Page
  * 10 configurable daily check-in questions.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================

@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Reset Confirm
+ * 4P3X Refractable Base OS™ — Reset Confirm
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================
  */

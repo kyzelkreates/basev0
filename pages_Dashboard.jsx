@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Admin Monitoring Dashboard v2.1 (Stable)
+ * 4P3X Refractable Base OS™ — Admin Monitoring Dashboard v2.1 (Stable)
  * Participant Management Metrics · Risk Monitor · Activity Hub
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  *
@@ -606,7 +606,7 @@ export default function Dashboard() {
       {/* ── FOOTER ──────────────────────────────────────── */}
       <div className="pt-1 pb-4 text-center">
         <span className="text-[10px] text-slate-800">
-          4P3X Learning & Monitoring Base OS™ · Powered by 4P3X Intelligent AI · Created by Kyzel Kreates
+          4P3X Refractable Base OS™ · Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
         </span>
       </div>
 

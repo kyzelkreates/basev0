@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Settings
+ * 4P3X Refractable Base OS™ — Settings
  * Programme config, weekly target, demo toggle, AI, security.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================
@@ -284,10 +284,10 @@ function SecurityPanel() {
       </SettingRow>
       <SectionHead label="System"/>
       <div className="py-4 text-xs text-slate-500">
-        <div>4P3X Learning & Monitoring Base OS™ v1.0.0</div>
-        <div className="mt-1 text-[10px] text-slate-700">Powered by 4P3X Intelligent AI · Created by Kyzel Kreates</div>
+        <div>4P3X Refractable Base OS™ v1.0.0</div>
+        <div className="mt-1 text-[10px] text-slate-700">Powered by 4P3X Intelligent AI — Created by Kyzel Kreates</div>
         <div className="mt-3 leading-relaxed text-[10px] text-slate-700">
-          4P3X Learning & Monitoring Base OS™ supports activity tracking tracking, evidence organisation, and participant management workflows.
+          4P3X Refractable Base OS™ is a refractable modular base system for learning, progress tracking, evidence management, and workflow coordination.
           It does not replace official guidance, legal advice, benefits advice, medical advice, or human decision-making.
         </div>
       </div>
@@ -435,7 +435,7 @@ function BackendPanel() {
       {/* MVP security note */}
       <div className="mt-4 rounded-xl px-4 py-3 text-[10px] leading-relaxed"
         style={{ background: '#070d1a', border: '1px solid #1a2035', color: '#475569' }}>
-        <strong className="text-slate-500">MVP Access-Token Mode:</strong> 4P3X Base OS uses
+        <strong className="text-slate-500">MVP Access-Token Mode:</strong> 4P3X Refractable Base OS™ uses
         public PWA link tokens for participant writes. Before handling sensitive live personal data
         at production scale, implement Supabase Auth (phone/email OTP) for stronger identity
         verification. See the SQL schema RLS policy comments for details.

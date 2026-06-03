@@ -1,4 +1,4 @@
--- 4P3X Learning & Monitoring Base OS™ — SQL Schema
+-- 4P3X Refractable Base OS™ — SQL Schema
 -- AP3X Fleet Control OS — BASE SCHEMA  (SQL 1 of 2)
 -- Run this FIRST in your Supabase SQL Editor.
 --

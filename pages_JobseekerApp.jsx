@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Participant PWA
+ * 4P3X Refractable Base OS™ — Participant PWA
  * Mobile-first standalone app for participants.
  * Offline-friendly. No fleet/driver wording.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
@@ -61,11 +61,11 @@ function PINGate({ onAuth }) {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-[#d4af37]/10 border border-[#d4af37]/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <span className="font-display font-bold text-[#d4af37] text-xl">CL</span>
+            <span className="font-display font-bold text-[#d4af37] text-xl">4P3X</span>
           </div>
           <h1 className="font-display font-bold text-white text-2xl">4P3X Base</h1>
-          <p className="text-slate-500 text-sm mt-1">Participant Activity App</p>
-          <p className="text-[10px] text-[#d4af37]/60 mt-1">Powered by 4P3X Intelligent AI</p>
+          <p className="text-slate-500 text-sm mt-1">Learner Activity App</p>
+          <p className="text-[10px] text-[#d4af37]/60 mt-1">Powered by 4P3X Intelligent AI — Created by Kyzel Kreates</p>
         </div>
         <div className="bg-[#0d1426] border border-slate-800/60 rounded-2xl p-6 space-y-4">
           <div>

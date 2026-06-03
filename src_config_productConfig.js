@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Product Config
+ * 4P3X Refractable Base OS™ — Product Config
  * Central label + identity configuration layer.
  * Update this file to refactor into any sector-specific product.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
@@ -9,10 +9,10 @@
 
 export const PRODUCT_CONFIG = {
   // ── Identity ──────────────────────────────────────────────
-  productName:       '4P3X Learning & Monitoring Base OS™',
-  productSubtitle:   'Participant PWA + Admin Monitoring Dashboard',
+  productName:       '4P3X Refractable Base OS™',
+  productSubtitle:   'Refractable Modular Base Structure',
   brandLine:         'Powered by 4P3X Intelligent AI — Created by Kyzel Kreates',
-  shortName:         '4P3X Base OS',
+  shortName:         '4P3X Base',
   version:           '1.0.0',
 
   // ── Mode ──────────────────────────────────────────────────

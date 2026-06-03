@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — 404 Not Found
+ * 4P3X Refractable Base OS™ — 404 Not Found
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================
  */
@@ -14,7 +14,7 @@ export default function NotFound() {
       <div className="space-y-5">
         <div className="font-mono text-6xl font-bold text-[#d4af37]/20">404</div>
         <h1 className="font-display font-bold text-white text-xl">Page Not Found</h1>
-        <p className="text-slate-500 text-sm max-w-xs">The page you're looking for doesn't exist in 4P3X Learning & Monitoring Base OS™.</p>
+        <p className="text-slate-500 text-sm max-w-xs">The page you're looking for doesn't exist in 4P3X Refractable Base OS™.</p>
         <button onClick={() => navigate('/dashboard')}
           className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#d4af37] text-black text-sm font-bold hover:bg-[#e6c34a] transition-colors mx-auto">
           <Icon name="Home" size={15} /> Back to Dashboard

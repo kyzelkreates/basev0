@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — 4P3X 4P3X Base Intelligence Layer™
+ * 4P3X Refractable Base OS™ — 4P3X 4P3X Base Intelligence Layer™
  * Shared Assistant Panel UI Component
  * Used by all 4 separated AI assistants.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates

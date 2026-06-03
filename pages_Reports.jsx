@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Reports & Evidence Packs
+ * 4P3X Refractable Base OS™ — Reports & Evidence Packs
  * Weekly activity summary per participant.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================
@@ -204,7 +204,7 @@ function ReportView({ participant, dataStore, isDemoMode, weeklyTarget }) {
       )}
 
       <p className="text-[10px] text-slate-700 text-center pb-4">
-        4P3X Learning & Monitoring Base OS™ · Generated {new Date().toLocaleString('en-GB')} · This is a support and evidence summary only. Created by Kyzel Kreates.
+        4P3X Refractable Base OS™ · Generated {new Date().toLocaleString('en-GB')} · This is a support and evidence summary only. Created by Kyzel Kreates.
       </p>
     </div>
   )

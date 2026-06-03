@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Top Navigation Bar
+ * 4P3X Refractable Base OS™ — Top Navigation Bar
  * Hamburger trigger, branding, user context, demo badge.
  * Responsive: brand text truncates, all items flex-shrink safe.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
@@ -35,7 +35,7 @@ export default function TopNav() {
       {/* Brand — truncates gracefully, never wraps */}
       <div className="flex items-center gap-2 min-w-0 flex-1 overflow-hidden">
         <span className="font-display font-bold text-[#d4af37] text-xs sm:text-sm tracking-wide truncate min-w-0">
-          4P3X Base OS™
+          4P3X Refractable Base OS™
         </span>
         {/* Full name on sm+ only */}
         <span className="hidden sm:inline font-display font-bold text-[#d4af37] text-sm tracking-wide truncate min-w-0">

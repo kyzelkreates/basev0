@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Participant Service
+ * 4P3X Refractable Base OS™ — Participant Service
  * SSOT service for participant CRUD + status management.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  *

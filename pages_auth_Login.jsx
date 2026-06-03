@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Coach Login Page
+ * 4P3X Refractable Base OS™ — Coach Login Page
  * Local auth — validates against localStorage accounts.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================
@@ -43,7 +43,7 @@ export default function Login() {
             <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
           </div>
           <div className="text-center">
-            <h1 className="font-display font-bold text-white text-xl">4P3X Learning & Monitoring Base OS™</h1>
+            <h1 className="font-display font-bold text-white text-xl">4P3X Refractable Base OS™</h1>
             <p className="text-[10px] text-[#d4af37]/60 uppercase tracking-widest mt-0.5">Admin Monitoring Dashboard</p>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function Login() {
         </div>
 
         <p className="text-[9px] text-slate-700 text-center mt-4">
-          4P3X Learning & Monitoring Base OS™ · Powered by 4P3X Intelligent AI · Created by Kyzel Kreates
+          4P3X Refractable Base OS™ · Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
         </p>
       </div>
     </div>

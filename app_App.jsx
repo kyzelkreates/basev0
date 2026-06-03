@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Root App Component
+ * 4P3X Refractable Base OS™ — Root App Component
  * Participant PWA + Admin Monitoring Dashboard
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================

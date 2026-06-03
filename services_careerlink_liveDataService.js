@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Live Data Service
+ * 4P3X Refractable Base OS™ — Live Data Service
  * Participant PWA + Admin Monitoring Dashboard
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  *

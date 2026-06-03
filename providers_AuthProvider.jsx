@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Auth Provider
+ * 4P3X Refractable Base OS™ — Auth Provider
  * Restores session on app load.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================

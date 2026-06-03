@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — 4P3X 4P3X Base Intelligence Layer™
+ * 4P3X Refractable Base OS™ — 4P3X 4P3X Base Intelligence Layer™
  * Dashboard AI Page
  * Hosts: 4P3X Intelligent AI 1 + 4P3X Intelligent AI 2
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
@@ -187,7 +187,7 @@ export default function AIPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h1 className="font-display font-bold text-white text-xl">4P3X 4P3X Base Intelligence Layer™</h1>
-          <p className="text-slate-500 text-sm mt-0.5">Embedded AI Support System · Powered by 4P3X Intelligent AI</p>
+          <p className="text-slate-500 text-sm mt-0.5">Embedded AI Support System · Powered by 4P3X Intelligent AI — Created by Kyzel Kreates</p>
         </div>
         <div className="flex items-center gap-2">
           {mode === AI_MODES.OFF && (
@@ -275,7 +275,7 @@ export default function AIPage() {
 
       {/* ── Bottom note ── */}
       <p className="text-[10px] text-slate-700 text-center pb-2">
-        4P3X 4P3X Base Intelligence Layer™ — 4P3X Learning & Monitoring Base OS™ · All AI outputs require human review.
+        4P3X 4P3X Base Intelligence Layer™ — 4P3X Refractable Base OS™ · All AI outputs require human review.
       </p>
     </div>
   )

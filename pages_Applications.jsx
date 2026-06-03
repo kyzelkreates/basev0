@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Activity Records Page
+ * 4P3X Refractable Base OS™ — Activity Records Page
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================
  */

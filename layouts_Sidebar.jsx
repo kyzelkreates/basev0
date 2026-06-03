@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Sidebar (Burger Drawer)
+ * 4P3X Refractable Base OS™ — Sidebar (Burger Drawer)
  * Left overlay drawer on ALL screen sizes.
  * Closes on nav, overlay click, or X button.
  * Responsive: max-width: min(88vw, 320px) — never takes full screen.
@@ -26,10 +26,10 @@ function ApexBaseLogo({ onClose }) {
         </div>
         <div className="min-w-0">
           <div className="font-display font-bold text-white text-sm leading-tight truncate">
-            4P3X Base OS™
+            4P3X Refractable Base OS™
           </div>
           <div className="text-[9px] text-[#b8860b]/70 tracking-wide truncate">
-            Powered by 4P3X Intelligent AI
+            Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
           </div>
         </div>
       </div>

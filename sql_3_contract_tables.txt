@@ -1,4 +1,4 @@
--- 4P3X Learning & Monitoring Base OS™ — SQL Schema
+-- 4P3X Refractable Base OS™ — SQL Schema
 -- AP3X Zero Drift — Contract Tables (sql_3_contract_tables.txt)
 -- Run AFTER sql_1_original_schema.txt and sql_2_pwa_sync_additions.txt
 -- ================================================================

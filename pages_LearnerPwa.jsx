@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Learner PWA
+ * 4P3X Refractable Base OS™ — Learner PWA
  * Generic Learning Installable PWA — Learner-facing interface.
  * Route: /#/learner
  *

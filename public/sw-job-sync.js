@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Service Worker
+ * 4P3X Refractable Base OS™ — Service Worker
  * public/sw-job-sync.js
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  *

@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Participant PWA (Link-Based Entry)
+ * 4P3X Refractable Base OS™ — Participant PWA (Link-Based Entry)
  * pages_JobseekerPwa.jsx
  *
  * Route: /#/pwa/:publicLinkId

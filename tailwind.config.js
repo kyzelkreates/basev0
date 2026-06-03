@@ -2,7 +2,7 @@
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 /**
- * 4P3X Learning & Monitoring Base OS™ — Tailwind Config
+ * 4P3X Refractable Base OS™ — Tailwind Config
  * 4P3X black/gold/silver/green/purple futuristic identity
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  */

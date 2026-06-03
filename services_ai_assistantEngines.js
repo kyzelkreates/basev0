@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — 4P3X Intelligent AI Layer™
+ * 4P3X Refractable Base OS™ — 4P3X Intelligent AI Layer™
  * Individual Assistant Rule-Based Engines
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  *
@@ -92,7 +92,7 @@ const AI1_RESPONSES = {
   send_pwa_link: () => buildAIResponse({
     assistantKey: ASSISTANT_KEYS.AI_1,
     title:        'Sending the Participant PWA Link',
-    summary:      'The PWA invite link lets participants access 4P3X Learning & Monitoring Base OS™ on their mobile phone.',
+    summary:      'The PWA invite link lets participants access 4P3X Refractable Base OS™ on their mobile phone.',
     suggestion:   'Go to Invite Participant in the sidebar. Select or create the participant. Copy the Participant App link shown on screen. Send it via email, SMS, WhatsApp, or any messaging app. The participant can open the link in their browser and tap "Add to Home Screen" to install it as an app.',
     reason:       'The PWA works offline so participants can log activity anywhere.',
     dataUsed:     'Invite Participant screen — PWA link flow.',
@@ -139,7 +139,7 @@ const AI1_RESPONSES = {
     summary:      'Risk levels are assigned to each participant based on their activity data.',
     suggestion:   'Low = on track, meeting weekly targets. Medium = slightly behind or a barrier has been flagged. High = significantly behind target or multiple barriers. Critical = no activity logged or an urgent welfare concern exists. You can change risk levels manually in a participant\'s profile. Use 4P3X Intelligent AI 2 to get data-based insight into why a risk level has changed.',
     reason:       'Risk levels help you prioritise which participants need your attention first.',
-    dataUsed:     'Risk level definitions from 4P3X Learning & Monitoring Base OS™ settings.',
+    dataUsed:     'Risk level definitions from 4P3X Refractable Base OS™ settings.',
     confidence:   'High',
     nextActions:  ['Review at-risk participants on the dashboard', 'Ask 4P3X Intelligent AI 2 for risk analysis'],
   }),
@@ -158,7 +158,7 @@ const AI1_RESPONSES = {
   check_first_today: () => buildAIResponse({
     assistantKey: ASSISTANT_KEYS.AI_1,
     title:        'Starting Your Day on the Dashboard',
-    summary:      'Here is a recommended daily starting routine for coaches using 4P3X Learning & Monitoring Base OS™.',
+    summary:      'Here is a recommended daily starting routine for coaches using 4P3X Refractable Base OS™.',
     suggestion:   'Step 1: Review the At Risk metric card on the Overview — follow up with any high/critical participants. Step 2: Check Open Support Flags for urgent welfare concerns. Step 3: Review missed check-ins. Step 4: Look at upcoming reviewSessions and send preparation reminders. Step 5: Check evidence gaps before any review meetings. For data-based prioritisation, ask 4P3X Intelligent AI 2.',
     reason:       'A consistent daily routine ensures no participant falls through the gaps.',
     dataUsed:     'Dashboard overview layout and workflow guidance.',

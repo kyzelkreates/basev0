@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — 4P3X Intelligent AI™
+ * 4P3X Refractable Base OS™ — 4P3X Intelligent AI™
  * AI Router + Assistant Registry
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  *
@@ -181,7 +181,7 @@ export function buildAIResponse({
     summary:             summary    || '',
     suggestion:          suggestion || '',
     reason:              reason     || '',
-    dataUsed:            dataUsed   || 'Stored 4P3X Base OS activity data.',
+    dataUsed:            dataUsed   || 'Stored 4P3X Refractable Base OS™ activity data.',
     confidence,
     urgency,
     humanReviewRequired: true,

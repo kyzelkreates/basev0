@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Participants Page
+ * 4P3X Refractable Base OS™ — Participants Page
  * Full participant table + detail profile panel.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================

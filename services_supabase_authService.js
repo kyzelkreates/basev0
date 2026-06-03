@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Local Auth Service
+ * 4P3X Refractable Base OS™ — Local Auth Service
  * All credentials stored in localStorage. No Supabase needed.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  *

@@ -1,13 +1,13 @@
-# 4P3X Learning & Monitoring Base OS™ — Safety & Disclaimer Module
+# 4P3X Refractable Base OS™ — Safety & Disclaimer Module
 
-**4P3X Learning & Monitoring Base OS™ — Participant PWA + Admin Monitoring Dashboard**
+**4P3X Refractable Base OS™ — Participant PWA + Admin Monitoring Dashboard**
 Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
 
 ---
 
 ## Purpose
 
-4P3X Learning & Monitoring Base OS™ supports activity tracking, evidence organisation, and participant progress monitoring workflows.
+4P3X Refractable Base OS™ supports activity tracking, evidence organisation, and participant progress monitoring workflows.
 
 This document defines the safety rules, scope boundaries, and disclaimers for the embedded 4P3X Intelligent AI assistants.
 
@@ -73,5 +73,5 @@ All AI outputs must be reviewed by an appropriate human support person before be
 
 ---
 
-*4P3X Learning & Monitoring Base OS™ v1.0 — Safety Module Documentation*
+*4P3X Refractable Base OS™ v1.0 — Safety Module Documentation*
 *Powered by 4P3X Intelligent AI — Created by Kyzel Kreates*

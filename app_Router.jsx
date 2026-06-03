@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Router v4
+ * 4P3X Refractable Base OS™ — Router v4
  * Learner PWA + Admin Monitoring Dashboard
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================

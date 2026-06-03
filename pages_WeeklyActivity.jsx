@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Weekly Activity Page
+ * 4P3X Refractable Base OS™ — Weekly Activity Page
  * Log and view assigned activities sessions.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================

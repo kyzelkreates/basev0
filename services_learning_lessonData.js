@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Lesson Data (SSOT)
+ * 4P3X Refractable Base OS™ — Lesson Data (SSOT)
  * Generic reusable lesson content for base structure.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================

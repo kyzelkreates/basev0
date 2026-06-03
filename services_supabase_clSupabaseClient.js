@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Safe Supabase Client
+ * 4P3X Refractable Base OS™ — Safe Supabase Client
  * services_supabase_clSupabaseClient.js
  *
  * Safe wrapper around @supabase/supabase-js.

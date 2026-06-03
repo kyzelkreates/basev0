@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Participant Login redirect
+ * 4P3X Refractable Base OS™ — Participant Login redirect
  * Redirects to the standalone Participant PWA.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================

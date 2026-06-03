@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Participant Setup / Invite Page
+ * 4P3X Refractable Base OS™ — Participant Setup / Invite Page
  * Coach creates a participant profile and gets their unique PWA link.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================
@@ -227,7 +227,7 @@ export default function JobseekerSetup() {
 
         {/* Footer */}
         <div className="text-center text-[10px] text-slate-800">
-          4P3X Learning & Monitoring Base OS™ · Powered by 4P3X Intelligent AI · Created by Kyzel Kreates
+          4P3X Refractable Base OS™ · Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
         </div>
       </div>
     </div>

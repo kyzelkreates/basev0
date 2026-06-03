@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — First-Run Setup Page
+ * 4P3X Refractable Base OS™ — First-Run Setup Page
  * Creates the initial coach/admin account.
  * Shown only once — when cl:setup_complete is not set.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
@@ -69,7 +69,7 @@ export default function Setup() {
             <span className="font-display font-bold text-[#d4af37] text-2xl">CL</span>
           </div>
           <div className="text-center">
-            <h1 className="font-display font-bold text-white text-xl">4P3X Learning & Monitoring Base OS™</h1>
+            <h1 className="font-display font-bold text-white text-xl">4P3X Refractable Base OS™</h1>
             <p className="text-[10px] text-[#d4af37]/60 mt-0.5 uppercase tracking-widest">First-time setup</p>
           </div>
         </div>
@@ -98,11 +98,11 @@ export default function Setup() {
 
           <button onClick={handleComplete}
             className="w-full py-3 rounded-xl bg-[#d4af37] text-black text-sm font-bold hover:bg-[#e6c34a] transition-colors">
-            Create Account & Launch 4P3X Learning & Monitoring Base OS™
+            Create Account & Launch 4P3X Refractable Base OS™
           </button>
 
           <p className="text-[10px] text-slate-700 text-center leading-relaxed">
-            4P3X Learning & Monitoring Base OS™ · Powered by 4P3X Intelligent AI · Created by Kyzel Kreates
+            4P3X Refractable Base OS™ · Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
           </p>
         </div>
       </div>

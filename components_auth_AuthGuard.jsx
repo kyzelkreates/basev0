@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Auth Guard
+ * 4P3X Refractable Base OS™ — Auth Guard
  * Protects admin dashboard routes.
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================

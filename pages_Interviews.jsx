@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Review Sessions Page
+ * 4P3X Refractable Base OS™ — Review Sessions Page
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================
  */

@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Public Landing Page
+ * 4P3X Refractable Base OS™ — Public Landing Page
  * Participant PWA + Admin Monitoring Dashboard
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================
@@ -155,8 +155,8 @@ export default function LandingPage() {
             <Icon name="Layers" size={16} style={{ color: GOLD }} />
           </div>
           <div>
-            <div style={{ fontSize: 13, fontWeight: 800, color: GOLD, lineHeight: 1.2 }}>4P3X Base OS™</div>
-            <div style={{ fontSize: 9, color: SILVER, opacity: 0.7, letterSpacing: '0.05em' }}>POWERED BY 4P3X INTELLIGENT AI</div>
+            <div style={{ fontSize: 13, fontWeight: 800, color: GOLD, lineHeight: 1.2 }}>4P3X Refractable Base OS™</div>
+            <div style={{ fontSize: 9, color: SILVER, opacity: 0.7, letterSpacing: '0.05em' }}>Powered by 4P3X Intelligent AI — Created by Kyzel Kreates</div>
           </div>
         </div>
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
@@ -210,9 +210,9 @@ export default function LandingPage() {
           fontWeight: 900, lineHeight: 1.12, color: '#ffffff',
           marginBottom: 8, letterSpacing: '-0.02em',
         }}>
-          <span style={{ color: GOLD }}>4P3X Learning &amp; Monitoring</span>
+          <span style={{ color: GOLD }}>4P3X Refractable</span>
           <br />
-          <span style={{ color: SILVER }}>Base OS</span>
+          <span style={{ color: SILVER }}>Base OS™</span>
           <sup style={{ fontSize: '0.4em', color: GOLD, verticalAlign: 'super', marginLeft: 2 }}>™</sup>
         </h1>
         <h2 style={{
@@ -401,7 +401,7 @@ export default function LandingPage() {
         flexWrap: 'wrap', gap: 12,
       }}>
         <div>
-          <div style={{ fontSize: 12, fontWeight: 700, color: GOLD }}>4P3X Learning &amp; Monitoring Base OS™</div>
+          <div style={{ fontSize: 12, fontWeight: 700, color: GOLD }}>4P3X Refractable Base OS™</div>
           <div style={{ fontSize: 10, color: SILVER, opacity: 0.6, marginTop: 2 }}>
             Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
           </div>

@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — 4P3X API Config Guard™
+ * 4P3X Refractable Base OS™ — 4P3X API Config Guard™
  * services_supabase_apiConfigGuard.js
  *
  * Blocks known backend-only secrets from ever appearing in

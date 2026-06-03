@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * 4P3X Learning & Monitoring Base OS™ — Demo Data Service
+ * 4P3X Refractable Base OS™ — Demo Data Service
  * Generates presentation-safe generic demo records.
  * ALL demo records are marked isDemo: true.
  * Demo mode ON/OFF is controlled by useConfigStore.
