@@ -6,7 +6,7 @@
  * ============================================================
  */
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useLocation, Outlet } from 'react-router-dom'
 import Sidebar from './layouts_Sidebar'
 import TopNav  from './layouts_TopNav'
@@ -16,13 +16,18 @@ export default function AppShell() {
   const sidebarExpanded = useAppStore(s => s.sidebarExpanded)
   const location        = useLocation()
 
-  // Auto-close sidebar on route change
+  // Auto-close sidebar + scroll to top on route change
+  const mainRef = useRef(null)
   useEffect(() => {
     useAppStore.getState().closeSidebar?.()
+    // Scroll main content area back to top on every route change
+    if (mainRef.current) {
+      mainRef.current.scrollTop = 0
+    }
   }, [location.pathname])
 
   return (
-    <div className="flex h-[100dvh] w-screen overflow-hidden bg-[#050810]" style={{ maxWidth: '100vw' }}>
+    <div className="flex w-screen overflow-hidden bg-[#050810] appshell-root" style={{ maxWidth: '100vw' }}>
       {/* Overlay — close sidebar on backdrop tap */}
       {sidebarExpanded && (
         <div
@@ -42,7 +47,8 @@ export default function AppShell() {
       >
         <TopNav />
         <main
-          className="flex-1 overflow-auto scrollbar-none"
+          ref={mainRef}
+          className="flex-1 overflow-auto scrollbar-none appshell-main"
           style={{ overflowX: 'hidden', minWidth: 0, width: '100%' }}
         >
           <Outlet />

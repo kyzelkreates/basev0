@@ -16,7 +16,7 @@
  * ============================================================
  */
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate }    from 'react-router-dom'
 import Icon               from './components_ui_Icon'
 import { useDataStore, useConfigStore, STORAGE_KEYS } from './core_storage'
@@ -54,6 +54,11 @@ const STATUS_CFG = {
 
 // ─── Shared helpers ──────────────────────────────────────────
 function ProgressBar({ pct, color = C.gold, height = 6 }) {
+  // Scroll to top on screen/view change
+  useEffect(() => {
+    if (scrollRef.current) scrollRef.current.scrollTop = 0
+  }, [screen])
+
   return (
     <div style={{ height, borderRadius: height, background: '#1e293b', overflow: 'hidden', width: '100%' }}>
       <div style={{
@@ -142,7 +147,7 @@ function LearnerGate({ onAuth, isDemoMode }) {
         <Icon name="ArrowLeft" size={14} /> Home
       </button>
 
-      <div style={{ width: '100%', maxWidth: 360 }}>
+      <div style={{ width: '100%', maxWidth: 'min(360px, calc(100vw - 32px))' }}>
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
           <div style={{
             width: 64, height: 64, borderRadius: 18, margin: '0 auto 14px',
@@ -976,6 +981,7 @@ function BottomNav({ current, onNav }) {
 
 // ─── Main PWA (post-login) ────────────────────────────────────
 function LearnerApp({ learner, onSignOut, isDemoMode }) {
+  const scrollRef = useRef(null)
   const [screen,         setScreen]         = useState('home')
   const [selectedLesson, setSelectedLesson] = useState(null) // { id, status }
   const [completedIds,   setCompletedIds]   = useState([])
@@ -1071,13 +1077,17 @@ function LearnerApp({ learner, onSignOut, isDemoMode }) {
   }
 
   return (
-    <div style={{
-      minHeight: '100dvh', background: '#050810', color: '#f1f5f9',
-      fontFamily: "'Inter', sans-serif",
-      paddingBottom: 64, overflowX: 'hidden',
-    }}>
+    <div
+      ref={scrollRef}
+      style={{
+        height: '100dvh', background: '#050810', color: '#f1f5f9',
+        fontFamily: "'Inter', sans-serif",
+        overflowY: 'auto', overflowX: 'hidden',
+        WebkitOverflowScrolling: 'touch',
+      }}
+    >
       {header}
-      <main style={{ minWidth: 0, width: '100%', overflowX: 'hidden' }}>
+      <main style={{ minWidth: 0, width: '100%', overflowX: 'hidden', paddingBottom: 72 }}>
         {renderScreen()}
       </main>
       <BottomNav current={screen} onNav={handleNav} />

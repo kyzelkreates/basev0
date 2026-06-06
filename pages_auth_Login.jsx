@@ -5,7 +5,7 @@
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================
  */
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import Icon from './components_ui_Icon'
 import { authService } from './services_supabase_authService'
@@ -30,6 +30,8 @@ export default function Login() {
     if (err) { setError(err.message || 'Invalid username or password.'); return }
     navigate(from, { replace: true })
   }
+
+  useEffect(() => { window.scrollTo({ top: 0, behavior: 'instant' }) }, [])
 
   return (
     <div className="min-h-[100dvh] bg-[#050810] flex items-center justify-center p-4">

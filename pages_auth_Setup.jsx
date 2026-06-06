@@ -6,7 +6,7 @@
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================
  */
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Icon from './components_ui_Icon'
 import { authService } from './services_supabase_authService'
@@ -59,6 +59,8 @@ export default function Setup() {
     localStorage.setItem('cl:setup_complete', 'true')
     navigate('/auth/login')
   }
+
+  useEffect(() => { window.scrollTo({ top: 0, behavior: 'instant' }) }, [])
 
   return (
     <div className="min-h-[100dvh] bg-[#050810] flex items-center justify-center p-4">

@@ -39,8 +39,8 @@
     color: #f1f5f9;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
-    overflow-y: hidden;
-    height: 100dvh;
+    overflow-y: auto;
+    min-height: 100dvh;
     width: 100%;
     max-width: 100vw;
     overscroll-behavior: none;
@@ -397,3 +397,181 @@ aside {
 /* ─── Scrollbar hide (safety duplicate) ─────────────────── */
 .scrollbar-none::-webkit-scrollbar { display: none; }
 .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE PATCH v2 — GLOBAL MOBILE / TABLET / DESKTOP FIX
+   4P3X Refractable Base OS™
+   Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── AppShell scroll context ────────────────────────────── */
+/* AppShell manages its own scroll via <main> overflow:auto  */
+/* body must allow auto scroll for standalone pages          */
+/* (Landing, LearnerPwa, auth pages are not inside AppShell) */
+
+.appshell-root {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* ── 320px — minimum supported width ───────────────────── */
+/* Hard floor: nothing should cause horizontal scroll below 320px */
+@media (max-width: 360px) {
+  /* Landing page product/AI cards: minWidth 300px → full width */
+  [style*="minmax(300"] {
+    grid-template-columns: 1fr !important;
+  }
+  [style*="minmax(220"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* CTA buttons on tiny screens: full width */
+  [style*="min(180px"] {
+    min-width: unset !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Hero h1 floor */
+  h1 {
+    font-size: clamp(20px, 8vw, 24px) !important;
+  }
+
+  /* Nav button text: hide label on smallest screens */
+  nav button span.nav-label-sm {
+    display: none;
+  }
+}
+
+/* ── Landing page specific fixes ───────────────────────── */
+@media (max-width: 480px) {
+  /* Product card grids: auto-fit minmax(300px) → force 1-col */
+  /* Caught via style attribute override */
+  [style*="gridTemplateColumns"][style*="300px"],
+  [style*="grid-template-columns"][style*="300px"] {
+    grid-template-columns: 1fr !important;
+  }
+  [style*="gridTemplateColumns"][style*="220px"],
+  [style*="grid-template-columns"][style*="220px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Landing page nav buttons — stack on mobile */
+  nav > div:last-child {
+    width: 100%;
+    justify-content: stretch;
+  }
+  nav > div:last-child button {
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
+  }
+
+  /* CTA buttons — stack */
+  [style*="justifyContent: 'center'"][style*="flexWrap: 'wrap'"] button,
+  [style*="justify-content: center"][style*="flex-wrap: wrap"] button {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Scroll to top — standalone pages ──────────────────── */
+/* Landing, LearnerPwa, auth pages scroll from body */
+body {
+  scroll-behavior: smooth;
+}
+
+/* ── Dashboard pages — main scroll area ─────────────────── */
+/* AppShell <main> handles overflow:auto correctly            */
+/* Ensure content panels don't create double-scroll          */
+.appshell-main {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── LearnerPwa gate card — 320px safe ─────────────────── */
+/* maxWidth:360 gate container must shrink on tiny screens  */
+[style*="maxWidth: 360"],
+[style*="max-width: 360px"] {
+  max-width: min(360px, calc(100vw - 32px)) !important;
+}
+
+/* ── PWA bottom nav — safe area ────────────────────────── */
+.pwa-bottom-nav {
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+/* ── Tables / charts — overflow scroll on mobile ─────────── */
+@media (max-width: 768px) {
+  /* Recharts / SVG containers */
+  .recharts-responsive-container {
+    min-width: 0 !important;
+  }
+  .recharts-wrapper {
+    max-width: 100% !important;
+  }
+
+  /* Any table-like structure */
+  [class*="overflow-x-auto"],
+  .table-wrap {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+}
+
+/* ── Touch target minimum ───────────────────────────────── */
+@media (hover: none) and (pointer: coarse) {
+  button, [role="button"], a, select, input[type="checkbox"], input[type="radio"] {
+    min-height: 44px;
+  }
+  input[type="text"], input[type="email"], input[type="password"], input[type="number"], select, textarea {
+    min-height: 44px;
+    font-size: max(16px, 1em); /* prevents iOS zoom on focus */
+  }
+}
+
+/* ── iOS input zoom prevention ──────────────────────────── */
+@supports (-webkit-touch-callout: none) {
+  input, select, textarea {
+    font-size: max(16px, 1em);
+  }
+}
+
+/* ── Sidebar "CL" logo badge fix (already branded) ──────── */
+/* No CSS needed — handled in component */
+
+/* ── TopNav brand subtitle — hide on very small screens ─── */
+@media (max-width: 400px) {
+  header .sm\:inline {
+    display: none !important;
+  }
+}
+
+/* ── Modal / sheet on mobile — prevent overflow ─────────── */
+@media (max-width: 640px) {
+  /* Full-screen modals become bottom sheets */
+  .modal-panel,
+  [class*="fixed inset-0"] > [class*="rounded"] {
+    border-radius: 16px 16px 0 0;
+    max-height: 90dvh;
+    overflow-y: auto;
+  }
+}
+
+/* ── Dashboard card metric font — clamp on small screens ── */
+@media (max-width: 400px) {
+  .text-xl, .md\:text-2xl {
+    font-size: clamp(1rem, 5vw, 1.25rem) !important;
+  }
+}
+
+/* ── Prevent any element from exceeding viewport ─────────── */
+* {
+  max-width: 100vw;
+}
+img, video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}

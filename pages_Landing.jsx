@@ -9,6 +9,7 @@
  * ============================================================
  */
 
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useConfigStore } from './core_storage'
 import Icon from './components_ui_Icon'
@@ -48,6 +49,10 @@ const badge = (color, bg) => ({
 })
 
 function Pill({ label, icon, color = GOLD }) {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [])
+
   return (
     <span style={{
       display: 'inline-flex', alignItems: 'center', gap: 5,
@@ -100,7 +105,7 @@ function CTAButton({ label, icon, onClick, primary = false, color = GOLD }) {
         transition: 'all 0.18s ease',
         letterSpacing: '0.01em',
         flex: 1,
-        minWidth: 'min(180px, 45vw)',
+        minWidth: 'min(160px, 42vw)',
         maxWidth: 320,
       }}
       onMouseEnter={e => {
@@ -189,7 +194,7 @@ export default function LandingPage() {
 
       {/* ── HERO ────────────────────────────────────────── */}
       <section style={{
-        padding: 'clamp(32px, 6vw, 80px) clamp(16px, 4vw, 64px) clamp(28px, 5vw, 64px)',
+        padding: 'clamp(28px, 5vw, 80px) clamp(12px, 4vw, 64px) clamp(24px, 4vw, 64px)',
         maxWidth: 1100,
         margin: '0 auto',
         textAlign: 'center',
@@ -244,8 +249,8 @@ export default function LandingPage() {
       {/* ── PRODUCT CARDS ────────────────────────────────── */}
       <section style={{
         maxWidth: 1100, margin: '0 auto',
-        padding: '0 clamp(20px, 5vw, 48px) clamp(40px, 6vw, 80px)',
-        display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24,
+        padding: '0 clamp(12px, 4vw, 48px) clamp(32px, 5vw, 80px)',
+        display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: 24,
       }}>
 
         {/* Card 1 — Admin Dashboard */}
@@ -333,7 +338,7 @@ export default function LandingPage() {
             </p>
           </div>
           <div style={{
-            display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16,
+            display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: 16,
           }}>
             {[
               { n:'1', name:'4P3X Intelligent AI 1', sub:'Admin Guide',        icon:'LayoutDashboard', color:GOLD,   desc:'Guides admins around the dashboard, explains sections, and helps understand the base system.' },

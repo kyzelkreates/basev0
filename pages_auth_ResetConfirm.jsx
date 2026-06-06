@@ -4,11 +4,14 @@
  * Powered by 4P3X Intelligent AI — Created by Kyzel Kreates
  * ============================================================
  */
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Icon from './components_ui_Icon'
 
 export default function ResetConfirm() {
   const navigate = useNavigate()
+  useEffect(() => { window.scrollTo({ top: 0, behavior: 'instant' }) }, [])
+
   return (
     <div className="min-h-[100dvh] bg-[#050810] flex items-center justify-center p-4">
       <div className="w-full max-w-sm text-center space-y-5">

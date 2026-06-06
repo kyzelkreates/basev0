@@ -20,7 +20,7 @@ function ApexBaseLogo({ onClose }) {
       <div className="flex items-center gap-3 min-w-0">
         <div className="relative flex-shrink-0">
           <div className="w-9 h-9 bg-[#b8860b]/10 border border-[#b8860b]/40 rounded-lg flex items-center justify-center">
-            <span className="font-display font-bold text-[#d4af37] text-xs tracking-wider">CL</span>
+            <span className="font-display font-bold text-[#d4af37] text-xs tracking-wider">4P</span>
           </div>
           <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-emerald-400 rounded-full shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
         </div>

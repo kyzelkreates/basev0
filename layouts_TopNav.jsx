@@ -37,9 +37,9 @@ export default function TopNav() {
         <span className="font-display font-bold text-[#d4af37] text-xs sm:text-sm tracking-wide truncate min-w-0">
           4P3X Refractable Base OS™
         </span>
-        {/* Full name on sm+ only */}
-        <span className="hidden sm:inline font-display font-bold text-[#d4af37] text-sm tracking-wide truncate min-w-0">
-          — Learning &amp; Monitoring
+        {/* Tagline on sm+ only */}
+        <span className="hidden sm:inline text-slate-600 text-xs truncate min-w-0">
+          — Refractable Base OS
         </span>
         {isDemoMode && (
           <span className="flex-shrink-0 text-[9px] font-bold tracking-widest uppercase bg-amber-500/15 text-amber-400 border border-amber-500/30 px-1.5 py-0.5 rounded whitespace-nowrap">
