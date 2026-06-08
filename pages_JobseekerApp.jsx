@@ -39,7 +39,7 @@ function PINGate({ onAuth }) {
     const all = jobseekerService.getAll()
     setJobseekers(all)
     // Auto-fill if session exists
-    const session = JSON.parse(localStorage.getItem(STORAGE_KEYS.JOBSEEKER_SESSION) || 'null')
+    const session = JSON.parse(localStorage.getItem(STORAGE_KEYS.PARTICIPANT_SESSION) || 'null')
     if (session?.jobseekerId) {
       const js = all.find(j => j.id === session.jobseekerId)
       if (js) { onAuth(js); return }
@@ -52,7 +52,7 @@ function PINGate({ onAuth }) {
     const js = participants.find(j => j.id === jsId)
     if (!js) { setError('Participant not found.'); return }
     // PIN is last 4 of id for demo — in real deployment would be set by coach
-    localStorage.setItem(STORAGE_KEYS.JOBSEEKER_SESSION, JSON.stringify({ jobseekerId: jsId, ts: Date.now() }))
+    localStorage.setItem(STORAGE_KEYS.PARTICIPANT_SESSION, JSON.stringify({ jobseekerId: jsId, ts: Date.now() }))
     onAuth(js)
   }
 
@@ -682,7 +682,7 @@ export default function JobseekerApp() {
             <span className="text-[#d4af37] text-[10px] font-bold">{participant.displayName.charAt(0)}</span>
           </div>
           <button onClick={() => {
-            localStorage.removeItem(STORAGE_KEYS.JOBSEEKER_SESSION)
+            localStorage.removeItem(STORAGE_KEYS.PARTICIPANT_SESSION)
             setJobseeker(null)
           }} className="text-[10px] text-slate-600 hover:text-slate-400">Sign out</button>
         </div>
