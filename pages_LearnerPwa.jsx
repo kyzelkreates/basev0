@@ -109,16 +109,18 @@ function LearnerGate({ onAuth, isDemoMode }) {
 
   useEffect(() => {
     try {
-      const session = JSON.parse(localStorage.getItem(STORAGE_KEYS.JOBSEEKER_SESSION) || 'null')
-      if (session?.jobseekerId) {
+      const session = JSON.parse(localStorage.getItem(STORAGE_KEYS.PARTICIPANT_SESSION) || 'null')
+      const sessionId = session?.participantId || session?.jobseekerId
+      if (sessionId) {
         const all = jobseekerService.getAll()
-        const found = all.find(j => j.id === session.jobseekerId)
+        const found = all.find(j => j.id === sessionId)
         if (found) { onAuth(found); return }
       }
     } catch (_) {}
 
     const all = jobseekerService.getAll()
-    setLearners(all.length > 0 ? all : (isDemoMode ? DEMO_PARTICIPANTS : []))
+    // Always show demo participants if no real data — ensures demo works on fresh load
+    setLearners(all.length > 0 ? all : DEMO_PARTICIPANTS)
   }, [onAuth, isDemoMode])
 
   const handleEnter = () => {
@@ -127,7 +129,7 @@ function LearnerGate({ onAuth, isDemoMode }) {
     const found = learners.find(j => j.id === learnerId)
     if (!found) { setError('Learner not found.'); return }
     try {
-      localStorage.setItem(STORAGE_KEYS.JOBSEEKER_SESSION, JSON.stringify({ jobseekerId: learnerId, ts: Date.now() }))
+      localStorage.setItem(STORAGE_KEYS.PARTICIPANT_SESSION, JSON.stringify({ participantId: learnerId, jobseekerId: learnerId, ts: Date.now() }))
     } catch (_) {}
     onAuth(found)
   }
@@ -1103,7 +1105,7 @@ export default function LearnerPwa() {
 
   const handleAuth     = useCallback((l) => setLearner(l), [])
   const handleSignOut  = () => {
-    try { localStorage.removeItem(STORAGE_KEYS.JOBSEEKER_SESSION) } catch (_) {}
+    try { localStorage.removeItem(STORAGE_KEYS.PARTICIPANT_SESSION) } catch (_) {}
     setLearner(null)
   }
 
